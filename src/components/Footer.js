@@ -43,7 +43,7 @@ const Footer = ({ color }) => {
     <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
       <div className={cont}>
         <div {...style({padding: '0 15px'})}>
-         {color === 'white' ? 
+         {color === 'white' ?
           <Logo color={Globals.colors.cyan}/> : <Logo color='white'/>
          }
          </div>
