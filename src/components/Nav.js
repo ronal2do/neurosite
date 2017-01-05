@@ -84,8 +84,8 @@ class Nav extends Component {
           <div>
             <Link to="/">
               { isToggleOn ?
-                <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} /> :
-                <Logo color="#ffffff" colorSec="#ffffff" />
+                <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} color3=""/> :
+                <Logo color="#ffffff" colorSec="#ffffff" color3="#ffffff" />
               }
             </Link>
           </div>
