@@ -4,8 +4,8 @@ import { css, style } from 'glamor';
 
 const sec = css({
   width: '100%',
-  paddingTop: '50px',
-  paddingBottom: '40px',
+  paddingTop: '30px',
+  paddingBottom: '30px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

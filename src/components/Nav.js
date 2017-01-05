@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { css } from 'glamor';
+import { css, style } from 'glamor';
 import { Link } from 'react-router';
 
 import Globals from '../utils/Globals';
@@ -23,7 +23,7 @@ const cont = css({
 })
 
 const ul = css({
-  padding: 15,
+  padding: 35,
   margin: 0,
   display: 'flex',
   listStyle: 'none',
@@ -34,6 +34,8 @@ const lk = css({
   margin: 0,
   display: 'flex',
   listStyle: 'none',
+  textTransform: 'uppercase',
+  textDecoration: 'none',
 })
 
 const Scrolled = css({
@@ -57,12 +59,12 @@ class Nav extends Component {
 
   handleScroll = () => {
     const {isToggleOn} = this.state;
-    if (global.scrollY > 350 && !isToggleOn) {
+    if (global.scrollY > 280 && !isToggleOn) {
       this.setState({
         isToggleOn: true,
       });
     }
-    else if (global.scrollY <= 350 && isToggleOn) {
+    else if (global.scrollY <= 280 && isToggleOn) {
       this.setState({
         isToggleOn: false,
       });
@@ -72,20 +74,27 @@ class Nav extends Component {
   render() {
     const {isToggleOn} = this.state;
     const test = isToggleOn ? Scrolled : null;
-    const logoColor = isToggleOn ? Globals.colors.cyan : '#FFFFFF' ;
+    const color = isToggleOn ? Globals.colors.logo2 : '#fff';
 
     return (
       <div className={`${nv} ${test}`}>
         <div className={cont}>
 
-          <div><Link to="/"><Logo color={logoColor}/></Link></div>
+          <div>
+            <Link to="/">
+              { isToggleOn ?
+                <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} /> :
+                <Logo color="#ffffff" colorSec="#ffffff" />
+              }
+            </Link>
+          </div>
           <ul className={ul}>
-            <li><Link className={lk} to="/">Home</Link></li>
-            <li><Link className={lk} to="portal">portal</Link></li>
-            <li><Link className={lk} to="profissionais">profissionais</Link></li>
-            <li><Link className={lk} to="forum">forum</Link></li>
-            <li><Link className={lk} to="eventos">eventos</Link></li>
-            <li><Link className={lk} to="contato">contato</Link></li>
+            <li><Link className={lk} to="/" {...style({color: `${color}` })} >Home</Link></li>
+            <li><Link className={lk} to="portal" {...style({color: `${color}` })} >portal</Link></li>
+            <li><Link className={lk} to="profissionais" {...style({color: `${color}` })} >profissionais</Link></li>
+            <li><Link className={lk} to="forum" {...style({color: `${color}` })} >forum</Link></li>
+            <li><Link className={lk} to="eventos" {...style({color: `${color}` })} >eventos</Link></li>
+            <li><Link className={lk} to="contato" {...style({color: `${color}` })} >contato</Link></li>
           </ul>
 
         </div>

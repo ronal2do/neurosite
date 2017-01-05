@@ -5,7 +5,7 @@ import Globals from '../utils/Globals';
 const sec = css({
   backgroundColor: Globals.colors.primary,
   width: '100%',
-  height: 'calc(100vh - 227px)',
+  height: 'calc(100vh - 150px)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

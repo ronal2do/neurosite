@@ -6,49 +6,9 @@ import Search from '../components/Search';
 import Articles from '../components/Articles';
 import Footer from '../components/Footer';
 
-import teste from '../media/images/teste.jpg';
+import brodman from '../media/images/brodman.png';
 
 const articles = [
-  {
-    "_id": "586d39877212d6cd1a4ec482",
-    "isActive": false,
-    "image": "http://kingofwallpapers.com/imagem/imagem-005.jpg",
-    "title": "Briana Powers",
-    "body": "Irure minim incididunt irure laboris quis in sunt adipisicing aute excepteur aliquip fugiat deserunt. Consequat pariatur ipsum non enim ex exercitation Lorem. Ex ipsum in do nostrud excepteur nisi deserunt aliquip mollit.\r\n",
-    "registered": "2015-03-24T09:27:40 +03:00"
-  },
-  {
-    "_id": "586d39878f0249ce04f22bea",
-    "isActive": false,
-    "image": "http://kingofwallpapers.com/imagem/imagem-005.jpg",
-    "title": "Gay Guzman",
-    "body": "Occaecat non incididunt est incididunt non dolore consequat mollit. Do est irure eiusmod sint cupidatat ullamco do. Esse nulla officia velit ea ullamco. Adipisicing eiusmod elit exercitation anim fugiat reprehenderit ullamco. Exercitation in reprehenderit irure commodo.\r\n",
-    "registered": "2016-09-03T06:54:48 +03:00"
-  },
-  {
-    "_id": "586d39874b198335d7948b53",
-    "isActive": false,
-    "image": "http://kingofwallpapers.com/imagem/imagem-005.jpg",
-    "title": "Kaye Morgan",
-    "body": "Proident exercitation quis occaecat eiusmod. Pariatur non aute cillum excepteur cupidatat nostrud eiusmod laboris sint in eiusmod anim enim tempor. Aliqua deserunt nulla et laborum ea.\r\n",
-    "registered": "2016-04-23T04:23:35 +03:00"
-  },
-  {
-    "_id": "586d39873ae34e047d49bb8c",
-    "isActive": true,
-    "image": "http://kingofwallpapers.com/imagem/imagem-005.jpg",
-    "title": "Robbie Summers",
-    "body": "Dolore deserunt aliquip eiusmod aliquip minim qui occaecat occaecat eiusmod veniam minim cillum est nulla. Ullamco ullamco dolor eu labore duis velit exercitation non consectetur. Consectetur nostrud non pariatur aliquip. Nostrud quis consequat laborum dolor culpa eiusmod irure dolore do. Laborum eiusmod duis duis aliqua aute laboris in cupidatat dolore et commodo. Eu excepteur duis dolor labore dolore aliquip officia velit Lorem sint.\r\n",
-    "registered": "2016-12-22T05:55:42 +02:00"
-  },
-  {
-    "_id": "586d39878ab1a4334246d372",
-    "isActive": false,
-    "image": "http://kingofwallpapers.com/imagem/imagem-06.jpg",
-    "title": "Newton Hartman",
-    "body": "Cillum adipisicing cupidatat consequat ad do magna laborum incididunt aliqua sunt reprehenderit. Mollit nostrud dolor aute ad sunt nulla cupidatat veniam consectetur non nisi excepteur magna ad. Reprehenderit nostrud fugiat irure quis deserunt amet.\r\n",
-    "registered": "2015-09-14T01:39:47 +03:00"
-  },
   {
     "_id": "586d398718490720d3fe93d6",
     "isActive": true,
@@ -56,46 +16,6 @@ const articles = [
     "title": "Carlene Britt",
     "body": "Mollit excepteur sint ullamco adipisicing est. Ipsum est nostrud eu minim occaecat non ea incididunt veniam nostrud dolor fugiat aliquip. Reprehenderit ipsum reprehenderit nisi mollit qui ullamco eu elit irure esse et. Eiusmod pariatur aliquip voluptate proident nulla in voluptate est laborum officia labore. Ad labore sint cillum irure fugiat dolore ea.\r\n",
     "registered": "2014-05-29T06:39:02 +03:00"
-  },
-  {
-    "_id": "586d3987af67dddb83a33ef1",
-    "isActive": true,
-    "image": "http://kingofwallpapers.com/imagem/imagem-008.jpg",
-    "title": "Krystal Barker",
-    "body": "Incididunt commodo aliqua nisi officia culpa eu eu nisi quis dolore ullamco eu. Quis tempor magna id id cupidatat commodo occaecat excepteur qui minim. Laboris consectetur quis mollit anim in fugiat nostrud aliqua laborum incididunt. Reprehenderit cillum irure irure tempor magna qui dolore occaecat magna nulla ex officia.\r\n",
-    "registered": "2015-06-28T07:18:36 +03:00"
-  },
-  {
-    "_id": "586d39875055eb28c551421e",
-    "isActive": false,
-    "image": "http://kingofwallpapers.com/imagem/imagem-005.jpg",
-    "title": "Dolly Sims",
-    "body": "Minim reprehenderit voluptate consectetur tempor aliqua id eu proident minim nisi voluptate. Nostrud adipisicing dolore exercitation ad eu veniam aliquip cupidatat exercitation. Occaecat qui ipsum veniam laboris. Ipsum nulla tempor quis in eu elit adipisicing dolor ut eu veniam Lorem consectetur. Culpa culpa veniam occaecat commodo eu minim irure.\r\n",
-    "registered": "2016-09-18T08:50:22 +03:00"
-  },
-  {
-    "_id": "586d398753034c1372beeed1",
-    "isActive": false,
-    "image": "http://kingofwallpapers.com/imagem/imagem-007.jpg",
-    "title": "White Goodman",
-    "body": "Ullamco ea quis voluptate ut aliquip velit consectetur labore cillum ut laborum. Laboris mollit sit labore eiusmod magna anim voluptate exercitation enim. Ea duis nostrud qui sunt occaecat fugiat ut mollit. Cillum nisi tempor commodo anim ut elit enim ea occaecat sit laboris nisi.\r\n",
-    "registered": "2014-04-24T07:59:10 +03:00"
-  },
-  {
-    "_id": "586d3987c159cd4bc5caa71a",
-    "isActive": true,
-    "image": "http://kingofwallpapers.com/imagem/imagem-002.jpg",
-    "title": "Short Lucas",
-    "body": "Mollit dolore et aliquip occaecat eiusmod elit nostrud aliquip deserunt veniam consequat. Esse excepteur ipsum consequat nisi id cillum magna deserunt irure veniam ex ipsum. Cillum officia culpa ipsum labore ullamco deserunt mollit veniam excepteur incididunt exercitation in nulla id. Nisi aliquip qui do cillum eiusmod nisi amet id ipsum id sunt veniam irure laborum. Proident dolor qui elit ea et elit. In dolore incididunt nulla cupidatat anim mollit exercitation.\r\n",
-    "registered": "2015-09-28T12:11:20 +03:00"
-  },
-  {
-    "_id": "586d3987fc3276cccaccec4a",
-    "isActive": true,
-    "image": "http://kingofwallpapers.com/imagem/imagem-005.jpg",
-    "title": "Katelyn Pittman",
-    "body": "Aliqua nostrud sint reprehenderit ullamco exercitation labore irure. Est cupidatat incididunt amet culpa consectetur proident aliqua. Tempor officia minim culpa magna qui ut occaecat mollit ea. Eiusmod id id ad occaecat pariatur adipisicing qui aliqua fugiat eiusmod irure veniam.\r\n",
-    "registered": "2016-08-05T06:24:55 +03:00"
   },
   {
     "_id": "586d398717cfc653b7ebd606",
@@ -123,11 +43,12 @@ const articles = [
   }
 ]
 
+
 class Home extends Component {
   render() {
     return (
       <div>
-        <Hero image={teste} />
+        <Hero image={brodman} />
         <Section color="white">
           <Search />
         </Section>

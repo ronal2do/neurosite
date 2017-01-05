@@ -23,7 +23,12 @@ const btn = css({
   paddingTop: 30,
   paddingBottom: 30,
   cursor: 'pointer',
-  color: Globals.colors.gray,
+  color: Globals.colors.textGray,
+  fontFamily: Globals.fonts.primary,
+  textTransform: 'uppercase',
+  letterSpacing: '0.7em',
+  borderRadius: 3,
+
 })
 
 const Articles = ({articles}) => {
@@ -32,7 +37,7 @@ const Articles = ({articles}) => {
       {articles.map((article, key) => {
           return <Article key={article._id} article={article} />;
       })}
-      
+
       <button className={btn}>Carregar mais notícias</button>
     </div>
   );

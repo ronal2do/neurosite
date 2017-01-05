@@ -14,16 +14,20 @@ const sec = css({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   flexDirection: 'column',
-  color: '#b8b8b8',
-
+  color: Globals.colors.gray,
+  fontFamily: Globals.fonts.primary,
+  textTransform: 'lowercase',
+  lineHeight: '1em',
+  fontSize: '20px',
+  letterSpacing: '1.5px',
 });
 
 const cont = css({
   width: '100%',
   maxWidth: '1100px',
   display: 'flex',
-  paddingtop: 150,
-  paddingBottom: 230,
+  paddingtop: 250,
+  paddingBottom: 220,
   alignItems: 'center',
   justifyContent: 'space-between',
   '@media (max-width: 767px)': {
@@ -42,9 +46,9 @@ const Footer = ({ color }) => {
   return (
     <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
       <div className={cont}>
-        <div {...style({padding: '0 15px'})}>
+        <div {...style({padding: '0 35px', transform: 'scale(1.4)'})}>
          {color === 'white' ?
-          <Logo color={Globals.colors.cyan}/> : <Logo color='white'/>
+          <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} /> : <Logo color='white' colorSec='white'/>
          }
          </div>
         <div {...style({padding: '0 15px'})}>
