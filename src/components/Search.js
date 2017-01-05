@@ -39,7 +39,7 @@ const lup = css({
 const Search = () => {
   return (
     <form className={sec} action="https://www.ncbi.nlm.nih.gov/pubmed?" target="_blank">
-      <h2 {...css({whiteSpace: 'nowrap'})}>Pesquisar artigos</h2>
+      <h2 {...css({whiteSpace: 'nowrap', fontWeight: '100'})}>Pesquisar artigos</h2>
       <input type="search" placeholder="pubmed.gov" className={inp} name="term" required/>
       <input type="submit" className={lup} value="" />
     </form>

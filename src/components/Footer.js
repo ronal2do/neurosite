@@ -1,6 +1,8 @@
 import React from 'react';
 import { css, style } from 'glamor';
 
+import logoFooter from '../media/images/logo-footer.svg';
+
 import Logo from './Logo';
 import Globals from '../utils/Globals';
 
@@ -15,7 +17,7 @@ const sec = css({
   backgroundPosition: 'center',
   flexDirection: 'column',
   color: Globals.colors.gray,
-  fontFamily: Globals.fonts.primary,
+  fontFamily: Globals.fonts.secundary,
   textTransform: 'lowercase',
   lineHeight: '1em',
   fontSize: '20px',
@@ -36,14 +38,30 @@ const cont = css({
 })
 
 const ul = css({
-  padding: 15,
+  paddingtop: 140,
   margin: 0,
   display: 'flex',
   listStyle: 'none',
 })
 
-const Footer = ({ color }) => {
-  return (
+const Footer = ({ color, contact }) => {
+  return contact ? (
+    <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
+
+      <img src={logoFooter} alt="" />
+
+      <ul className={ul}>
+        <li>*</li>
+        <li>*</li>
+        <li>*</li>
+        <li>*</li>
+        <li>*</li>
+      </ul>
+
+      <div>Copyright 2016 neuroedu.co</div>
+
+    </footer>
+  ) : (
     <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
       <div className={cont}>
         <div {...style({padding: '0 35px', transform: 'scale(1.4)'})}>

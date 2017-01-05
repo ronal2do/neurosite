@@ -12,7 +12,8 @@ const sec = css({
   justifyContent: 'center',
   color: 'white',
   backgroundSize: 'cover',
-  backgroundPosition: 'center'
+  backgroundPosition: 'center',
+  fontFamily: Globals.fonts.primary,
 });
 
 const Banner = ({ children, image, title }) => {
@@ -21,7 +22,7 @@ const Banner = ({ children, image, title }) => {
       className={sec}
       {...style({backgroundImage: `url(${image})`} )}
     >
-        <h1>{title}</h1>
+        <h1 style={{fontWeight: '100', textTransform: 'uppercase'}}>{title}</h1>
     </section>
   );
 }

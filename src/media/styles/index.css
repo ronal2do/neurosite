@@ -33,3 +33,27 @@ p {
   font-family: 'Playfair Display';
   font-weight: bold;
 }
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gotham-book/Gotham-Book.eot');
+  src: url('../fonts/gotham-book/Gotham-Book.woff2') format('woff2'),
+       url('../fonts/gotham-book/Gotham-Book.woff') format('woff'),
+       url('../fonts/gotham-book/Gotham-Book.ttf') format('truetype'),
+       url('../fonts/gotham-book/Gotham-Book.svg#Gotham-Book') format('svg'),
+       url('../fonts/gotham-book/Gotham-Book.eot?#iefix') format('embedded-opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/gotham-black/Gotham-Black.eot');
+  src: url('../fonts/gotham-black/Gotham-Black.woff2') format('woff2'),
+       url('../fonts/gotham-black/Gotham-Black.woff') format('woff'),
+       url('../fonts/gotham-black/Gotham-Black.ttf') format('truetype'),
+       url('../fonts/gotham-black/Gotham-Black.svg#Gotham-Black') format('svg'),
+       url('../fonts/gotham-black/Gotham-Black.eot?#iefix') format('embedded-opentype');
+  font-weight: bold;
+  font-style: normal;
+}

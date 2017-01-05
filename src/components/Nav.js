@@ -36,6 +36,7 @@ const lk = css({
   listStyle: 'none',
   textTransform: 'uppercase',
   textDecoration: 'none',
+  fontFamily: Globals.fonts.primary,
 })
 
 const Scrolled = css({

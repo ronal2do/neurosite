@@ -7,7 +7,8 @@ const Globals = {
     // primary: '#00bcd4',
     green: '#06cc9b',
     red: '#e11742',
-
+    blue: '#677fbc',
+    
     cyan: '#00bcd4',
     logo: '#EE2849',
     logo2: '#5C81C1',
