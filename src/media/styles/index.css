@@ -48,6 +48,18 @@ p {
 
 @font-face {
   font-family: 'Gotham';
+  src: url('../fonts/gotham-medium/Gotham-Medium.eot');
+  src: url('../fonts/gotham-medium/Gotham-Medium.woff2') format('woff2'),
+       url('../fonts/gotham-medium/Gotham-Medium.woff') format('woff'),
+       url('../fonts/gotham-medium/Gotham-Medium.ttf') format('truetype'),
+       url('../fonts/gotham-medium/Gotham-Medium.svg#Gotham-Medium') format('svg'),
+       url('../fonts/gotham-medium/Gotham-Medium.eot?#iefix') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
   src: url('../fonts/gotham-black/Gotham-Black.eot');
   src: url('../fonts/gotham-black/Gotham-Black.woff2') format('woff2'),
        url('../fonts/gotham-black/Gotham-Black.woff') format('woff'),

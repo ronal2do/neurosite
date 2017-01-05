@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { css, style } from 'glamor';
-import { Link } from 'react-router';
+import { IndexLink, Link } from 'react-router';
 
 import Globals from '../utils/Globals';
 import Logo from './Logo';
@@ -11,6 +11,8 @@ const nv = css({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  padding: '35px 0px',
+  transition: 'all 200ms ease-in-out',
 })
 
 const cont = css({
@@ -19,7 +21,6 @@ const cont = css({
   alignItems: 'center',
   width: '100%',
   maxWidth: '1100px',
-  padding: '35px 15px',
 })
 
 const ul = css({
@@ -37,9 +38,19 @@ const lk = css({
   textTransform: 'uppercase',
   textDecoration: 'none',
   fontFamily: Globals.fonts.primary,
+  fontWeight: '100',
+
+  ':hover': {
+    fontWeight: 'bold',
+  }
+})
+
+const active = css({
+    fontWeight: 'bold',
 })
 
 const Scrolled = css({
+  padding: '0px',
   background: 'rgba(255,255,255,.975)',
   borderBottom: '1px solid #ebebeb',
   color: '#303030',
@@ -90,12 +101,12 @@ class Nav extends Component {
             </Link>
           </div>
           <ul className={ul}>
-            <li><Link className={lk} to="/" {...style({color: `${color}` })} >Home</Link></li>
-            <li><Link className={lk} to="portal" {...style({color: `${color}` })} >portal</Link></li>
-            <li><Link className={lk} to="profissionais" {...style({color: `${color}` })} >profissionais</Link></li>
-            <li><Link className={lk} to="forum" {...style({color: `${color}` })} >forum</Link></li>
-            <li><Link className={lk} to="eventos" {...style({color: `${color}` })} >eventos</Link></li>
-            <li><Link className={lk} to="contato" {...style({color: `${color}` })} >contato</Link></li>
+            <li><IndexLink className={lk} to="/" {...style({color: `${color}` })} activeClassName={active}>Home</IndexLink></li>
+            <li><Link className={lk} to="portal" {...style({color: `${color}` })} activeClassName={active}>portal</Link></li>
+            <li><Link className={lk} to="profissionais" {...style({color: `${color}` })} activeClassName={active}>profissionais</Link></li>
+            <li><Link className={lk} to="forum" {...style({color: `${color}` })} activeClassName={active}>fórum</Link></li>
+            <li><Link className={lk} to="eventos" {...style({color: `${color}` })} activeClassName={active}>eventos</Link></li>
+            <li><Link className={lk} to="contato" {...style({color: `${color}` })} activeClassName={active}>contato</Link></li>
           </ul>
 
         </div>
