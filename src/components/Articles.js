@@ -28,7 +28,6 @@ const btn = css({
   textTransform: 'uppercase',
   letterSpacing: '0.7em',
   borderRadius: 3,
-
 })
 
 const Articles = ({articles}) => {

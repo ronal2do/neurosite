@@ -16,28 +16,36 @@ const sec = css({
   color: 'white',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
+  backgroundColor: '#3b5998',
   fontFamily: Globals.fonts.secundary,
+});
+
+const foot = css({
+  width: '100%',
+  borderTop: '1px solid white',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-around',
 });
 
 class BoxFacebook extends Component {
   state = {
     post: '',
+    access_token: 'EAAa7Pb6FkLgBABAz86U3ZBFoEF3Rs4HpmSbdBs0zscPgvUqAeXSofq80orTV6RWSpJYbpXHiFxd9OY5nyH7iVKfX4ZAmiPz71Rmx1DCvN7qRiPYPsFpkUrTRQ2VE7iJkDfvDkFFFMv8N7WJZAm4AQOhM0ryqvYZD',
   }
 
   componentDidMount() {
-    const access_token = "EAACEdEose0cBAMs6EdLNeexLeTkMvfWMKdZBDAm093Pe0oK2HdgHFaAwyCsI7m2TZAOZCRwzwd0xNfmeRYtSp8xsoTP4e6O0RT7HhpseuM373lLf9GiV3fR5bcab6bTG9Ka63pdoGzPkSrmZBihGWIS2hVWboh5tfHcgyStwVAZDZD";
+    // pegar o access_token
+    // e setar na const
+  }
 
-    // graph.extendAccessToken({
-    //      "client_id":      '1370680406285282'
-    //    , "client_secret":  'c38c4446f0363b13a6c956b469b37bc0'
-    //  }, function (err, facebookRes) {
-    //     console.log(facebookRes);
-    //  });
+  componentWillMount() {
 
-    graph.get('dlimaart/posts', {limit: 1, access_token: access_token}, (err, res) => {
-      const rp = res.data[0];
+    graph.setAccessToken(this.state.access_token);
 
+    graph.get('amigossauro/posts', {limit: 1}, (err, res) => {
       if (res.data[0].message) {
+        const rp = res.data[0];
          this.setState({
              post: rp
          });
@@ -48,13 +56,16 @@ class BoxFacebook extends Component {
 
   render() {
     const { post } = this.state;
-
     return (
       <section className={sec} >
         <h1 style={{color: 'white'}}>{moment(post.created_time).fromNow()}</h1>
         <p>
           {post.message}
-         </p>
+        </p>
+        <div className={foot}>
+          <div>F</div>
+          <div>Like</div>
+        </div>
       </section>
     );
   }

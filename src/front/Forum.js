@@ -26,6 +26,7 @@ class Home extends Component {
 
           </Section>
         </Section>
+        
         <Section color="white">
           <Divi title="ao vivo" subTitle="eventos"/>
         </Section>
