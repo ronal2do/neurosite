@@ -66,7 +66,7 @@ const Footer = ({ color, contact }) => {
       <div className={cont}>
         <div {...style({padding: '0 35px', transform: 'scale(1.4)'})}>
          {color === 'white' ?
-          <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} /> : <Logo color='white' colorSec='white'/>
+          <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} /> : <Logo color='white' colorSec='white' color3='white'/>
          }
          </div>
         <div {...style({padding: '0 15px'})}>

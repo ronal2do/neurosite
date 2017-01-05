@@ -3,17 +3,15 @@ import { css, style } from 'glamor';
 import Globals from '../utils/Globals';
 
 const sec = css({
-  backgroundColor: Globals.colors.primary,
   width: '100%',
-  paddingTop: '200px',
-  paddingBottom: '130px',
   display: 'flex',
   alignItems: 'center',
+  flexDirection: 'column',
   justifyContent: 'center',
   color: 'white',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  fontFamily: Globals.fonts.primary,
+  fontFamily: Globals.fonts.secundary,
 });
 
 const Banner = ({ children, image, title }) => {
@@ -22,7 +20,13 @@ const Banner = ({ children, image, title }) => {
       className={sec}
       {...style({backgroundImage: `url(${image})`} )}
     >
-        <h1 style={{fontWeight: '100', textTransform: 'uppercase', letterSpacing: 10}}>{title}</h1>
+          <h1 style={{color: 'white'}}>Lorem ipsum dolor sit amet, consectetur adipisicing</h1>
+          <p>
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+             Totam accusamus odio culpa numquam recusandae explicabo
+             soluta labore quaerat excepturi deleniti ipsa aut facere
+             blanditiis, sit debitis, dolorem, quam? Quod, adipisci.
+           </p>
     </section>
   );
 }

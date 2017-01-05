@@ -49,7 +49,9 @@
   "dependencies": {
     "axios": "^0.15.3",
     "ease-component": "^1.0.0",
+    "fb-react-sdk": "^1.0.4",
     "glamor": "^2.20.20",
+    "moment": "^2.17.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",

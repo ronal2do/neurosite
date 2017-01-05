@@ -17,19 +17,19 @@ const sec = css({
 const inp = css({
   width: '100%',
   maxWidth: '1100px',
-  padding: 15,
+  padding: '40px 10px',
   border: 'none',
   color: 'black',
   fontFamily: Globals.fonts.secundary,
   textTransform: 'lowercase',
   fontStyle: 'italic',
-  fontSize: 18,
+  fontSize: 24,
 })
 
 const Divi = ({title, subTitle}) => {
   return (
     <div className={sec}>
-      <h2 {...css({whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '0.7em', fontWeight: '100',})}>{title}</h2>
+      <h1 {...css({whiteSpace: 'nowrap', textTransform: 'uppercase', letterSpacing: '0.7em', fontWeight: '100',})}>{title}</h1>
       <p className={inp}>{subTitle}</p>
     </div>
   );

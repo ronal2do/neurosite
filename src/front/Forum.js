@@ -2,25 +2,41 @@ import React, { Component } from 'react';
 
 import Banner from '../components/Banner';
 import Section from '../components/Section';
-import Search from '../components/Search';
+import Divi from '../components/Divi';
+import BoxText from '../components/BoxFacebook';
 import Footer from '../components/Footer';
 
-import teste from '../media/images/teste.jpg';
+import Globals from '../utils/Globals';
+
+import teste from '../media/images/forum.png';
 
 class Home extends Component {
   render() {
     return (
       <div>
-        <Banner title="forum" image={teste} />
+        <Banner title="fórum" image={teste} />
         <Section color="white">
-          <Search />
+          <Divi title="youtube" subTitle="canais"/>
         </Section>
-        <Section color="blue" nopadding >
+        <Section color="white" >
           <Section color="#3b5999">
-
+              <BoxText />
           </Section>
           <Section color="rgb(63, 67, 71)" image={teste}>
 
+          </Section>
+        </Section>
+        <Section color="white">
+          <Divi title="ao vivo" subTitle="eventos"/>
+        </Section>
+        <Section color="white" nopadding >
+          <Section>
+            <Section color={Globals.colors.green}>
+                <BoxText />
+            </Section>
+            <Section color="rgb(63, 67, 71)" image={teste}>
+
+            </Section>
           </Section>
         </Section>
         <Section color="rgb(36, 40, 43)">
