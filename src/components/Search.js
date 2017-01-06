@@ -14,6 +14,9 @@ const sec = css({
   fontFamily: Globals.fonts.primary,
   textTransform: 'uppercase',
   letterSpacing: '0.5em',
+  '@media (max-width: 767px)': {
+    flexDirection: 'column'
+  },
 });
 
 const inp = css({
@@ -36,10 +39,22 @@ const lup = css({
   height: 30,
 })
 
+const h2 = css({
+  paddingTop: 5,
+  textTransform: 'uppercase',
+  letterSpacing: 3,
+  fontWeight: '100',
+  fontSize: 20,
+  whiteSpace: 'nowrap',
+  '@media (max-width: 767px)': {
+    whiteSpace: 'normal'
+  },
+})
+
 const Search = () => {
   return (
     <form className={sec} action="https://www.ncbi.nlm.nih.gov/pubmed?" target="_blank">
-      <h2 {...css({paddingTop: 5, whiteSpace: 'nowrap', fontWeight: '100', fontSize: 20, letterSpacing: '3px'})}>Pesquisar artigos</h2>
+      <h2 className={h2}>Pesquisar artigos</h2>
       <input type="search" placeholder="pubmed.gov" className={inp} name="term" required/>
       <input type="submit" className={lup} value="" />
     </form>

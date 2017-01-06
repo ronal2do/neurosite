@@ -44,6 +44,14 @@ const ul = css({
   listStyle: 'none',
 })
 
+const log = css({
+  padding: '0 35px',
+  transform: 'scale(1.4)',
+  '@media (max-width: 767px)': {
+      padding: 0,
+  },
+})
+
 const Footer = ({ color, contact }) => {
   return contact ? (
     <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
@@ -64,7 +72,7 @@ const Footer = ({ color, contact }) => {
   ) : (
     <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
       <div className={cont}>
-        <div {...style({padding: '0 35px', transform: 'scale(1.4)'})}>
+        <div className={log}>
          {color === 'white' ?
           <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} /> : <Logo color='white' colorSec='white' color3='white'/>
          }

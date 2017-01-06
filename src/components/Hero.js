@@ -14,13 +14,13 @@ const sec = css({
   backgroundPosition: 'center'
 });
 
-const Hero = ({ children, image, title }) => {
+const Hero = ({ children, image }) => {
   return (
     <section
       className={sec}
       {...style({backgroundImage: `url(${image})`} )}
     >
-        <h1>{title}</h1>
+        
     </section>
   );
 }

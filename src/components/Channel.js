@@ -4,18 +4,20 @@ import Globals from '../utils/Globals';
 import { css } from 'glamor';
 
 const cont = css({
-  width: 'calc(50% - 10px)',
   border: 'none',
-  marginTop: 45,
+  padding: '0px 30px',
   marginBottom: 45,
+  textAlign: 'center',
   '@media (max-width: 767px)': {
-    width: '100%',
+      width: '100%',
+      padding: '0px',
   },
 })
 
 const h2 = css({
-  fontFamily: Globals.fonts.secundary,
-  color: Globals.colors.green,
+  fontFamily: Globals.fonts.primary,
+  fontWeight: '100',
+  color: 'black',
 })
 
 const p = css({
@@ -44,37 +46,21 @@ const header = css({
   fontFamily: Globals.fonts.primary,
   textTransform: 'uppercase',
   fontWeight: '100',
-  maxWidth: 600,
   color: 'white',
   flexWrap: 'wrap',
-})
-
-const date = css({
-  border: '1px solid white',
-  padding: '20px 30px',
 })
 
 const Channel = ({video}) => {
   return (
     <div className={cont}>
+      <h2 className={h2}>{video.title}</h2>
       <div className={header}>
-        <img src={`http://img.youtube.com/vi/${video.youtube}/mqdefault.jpg`} alt="Hora de dormir" width="600px" />
+        <img src={`http://img.youtube.com/vi/${video.youtube}/maxresdefault.jpg`} alt="Hora de dormir" width="100%" />
       </div>
       <div>
-        <h1 className={h2}>{video.title}</h1>
         <p>{video.body}</p>
-
-      </div>
-      <div className={header}>
-        <p>#HashTags</p>
-        <p>#HashTags</p>
-          <p>#HashTags</p>
-            <p>#HashTags</p>
-              <p>#HashTags</p>
-        <p>#HashTags</p>
       </div>
       <button className={btn}>inscreva-se</button>
-
     </div>
   );
 }

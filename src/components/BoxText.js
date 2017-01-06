@@ -13,6 +13,9 @@ const sec = css({
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   fontFamily: Globals.fonts.secundary,
+  '@media (max-width: 767px)': {
+    padding: 0,
+  },
 });
 
 const Banner = ({ children, image, title, color }) => {

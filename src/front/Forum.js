@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Banner from '../components/Banner';
 import Section from '../components/Section';
+import Container from '../components/Container';
 import Divi from '../components/Divi';
 import BoxText from '../components/BoxText';
 import VideoList from '../components/VideoList';
@@ -10,6 +11,7 @@ import Footer from '../components/Footer';
 import Globals from '../utils/Globals';
 
 import teste from '../media/images/forum.png';
+import grid from '../media/images/grade.png';
 
 const articles = [
   {
@@ -51,6 +53,7 @@ const articles = [
 ]
 
 class Forum extends Component {
+
   render() {
     return (
       <div>
@@ -58,25 +61,31 @@ class Forum extends Component {
         <Section color="white">
           <Divi title="youtube" subTitle="canais"/>
         </Section>
-        <Section color="white" >
-          <VideoList videos={articles}/>
+        <Section color="white" nopadding>
+          <Container>
+            <VideoList videos={articles}/>
+
+          </Container>
         </Section>
         <Section color="white">
           <Divi title="ao vivo" subTitle="eventos"/>
         </Section>
-        <Section color={Globals.colors.green} >
-          <BoxText
-            color={Globals.colors.green}
-            title="Lorem ipsum dolor sit amet, consectetur adipisicing"
-          >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Totam accusamus odio culpa numquam recusandae explicabo
-            soluta labore quaerat excepturi deleniti ipsa aut facere
-            blanditiis, sit debitis, dolorem, quam? Quod, adipisci.
-          </BoxText>
-          <Section color="rgb(63, 67, 71)" image={teste}>
+        <Section color={Globals.colors.green} nopadding>
+          <Container>
+            <BoxText
+              color={Globals.colors.green}
+              image={grid}
+              title="Lorem ipsum dolor sit amet, consectetur adipisicing"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Totam accusamus odio culpa numquam recusandae explicabo
+              soluta labore quaerat excepturi deleniti ipsa aut facere
+              blanditiis, sit debitis, dolorem, quam? Quod, adipisci.
+            </BoxText>
+            <Section color="rgb(63, 67, 71)" image={teste}>
 
-          </Section>
+            </Section>
+          </Container>
         </Section>
 
         <Section color="rgb(36, 40, 43)">
