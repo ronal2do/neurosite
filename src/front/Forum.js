@@ -64,7 +64,6 @@ class Forum extends Component {
         <Section color="white" nopadding>
           <Container>
             <VideoList videos={articles}/>
-
           </Container>
         </Section>
         <Section color="white">

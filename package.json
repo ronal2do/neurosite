@@ -1,6 +1,7 @@
 {
   "name": "feedback",
   "version": "0.1.0",
+  "proxy": "https://www.ncbi.nlm.nih.gov/*",
   "private": true,
   "devDependencies": {
     "autoprefixer": "6.5.1",
@@ -48,10 +49,13 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "cheerio": "^0.22.0",
+    "cors": "^2.8.1",
     "ease-component": "^1.0.0",
     "expose-loader": "^0.7.1",
     "fb": "^1.1.1",
     "fb-react-sdk": "^1.0.4",
+    "fetch": "^1.1.0",
     "glamor": "^2.20.20",
     "jquery": "^3.1.1",
     "moment": "^2.17.1",

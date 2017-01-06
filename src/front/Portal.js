@@ -28,9 +28,7 @@ class Portal extends Component {
 
         <Section color="#3b5999" nopadding>
           <Container>
-            <Section color="#3b5999" >
-              <BoxFacebook />
-            </Section>
+            <BoxFacebook />
             <Section color="rgb(63, 67, 71)" image={transmission}>
               <BoxYoutube />
             </Section>

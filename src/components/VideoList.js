@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Globals from '../utils/Globals';
+
 import 'expose?$!expose?jQuery!jquery'; // eslint-disable-line
 import OwlCarousel from 'react-owl-carousel';
 import Channel from './Channel';
