@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Globals from '../utils/Globals';
+
 import Banner from '../components/Banner';
 import Section from '../components/Section';
 import Container from '../components/Container';
@@ -8,13 +10,14 @@ import VideoFeature from '../components/VideoFeature';
 import Lessons from '../components/Lessons';
 import BoxFacebook from '../components/BoxFacebook';
 import BoxYoutube from '../components/BoxYoutube';
+import PortalForm from '../components/PortalForm';
 import Footer from '../components/Footer';
 
 import portal from '../media/images/portal.png';
 import transmission from '../media/images/transmission.png';
 import inscrevase from '../media/images/inscrevase.png';
 
-class Home extends Component {
+class Portal extends Component {
   render() {
     return (
       <div>
@@ -43,7 +46,7 @@ class Home extends Component {
         </Section>
 
         <Section color="white" image={inscrevase}>
-          <div>form</div>
+          <PortalForm color={Globals.colors.green}/>
         </Section>
 
         <Footer color="#1e2326"/>
@@ -53,4 +56,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Portal;

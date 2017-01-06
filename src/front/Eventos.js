@@ -4,6 +4,8 @@ import Globals from '../utils/Globals';
 import Banner from '../components/Banner';
 import Section from '../components/Section';
 import EventList from '../components/EventList';
+import EventPhrase from '../components/EventPhrase';
+import EventForm from '../components/EventForm';
 import Footer from '../components/Footer';
 
 import eventos from '../media/images/eventos.png';
@@ -44,8 +46,6 @@ const events = [
   }
 ]
 
-
-
 class Eventos extends Component {
   render() {
     return (
@@ -55,14 +55,10 @@ class Eventos extends Component {
           <EventList events={events} />
         </Section>
         <Section color={Globals.colors.red}>
-          <div style={{color: 'white', textAlign: 'center', width: '100%'}}>
-            <h1>quer fazer seu evento conosco?</h1>
-            <h5>ENTRE EM CONTATO OU ENVIE SUA SUGESTÃO ABAIXO</h5>
-          </div>
+          <EventPhrase />
         </Section>
         <Section color="#1e2b30" image={formulario} >
-            aaa
-
+          <EventForm color={Globals.colors.red}/>
         </Section>
         <Footer color="white"/>
 

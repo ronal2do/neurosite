@@ -5,6 +5,7 @@ import Globals from '../utils/Globals';
 const sec = css({
   width: '100%',
   display: 'flex',
+  padding: 30,
   alignItems: 'center',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -14,19 +15,14 @@ const sec = css({
   fontFamily: Globals.fonts.secundary,
 });
 
-const Banner = ({ children, image, title }) => {
+const Banner = ({ children, image, title, color }) => {
   return (
     <section
       className={sec}
-      {...style({backgroundImage: `url(${image})`} )}
+      {...style({backgroundColor: `${color}`, backgroundImage: `url(${image})`} )}
     >
-          <h1 style={{color: 'white'}}>Lorem ipsum dolor sit amet, consectetur adipisicing</h1>
-          <p>
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-             Totam accusamus odio culpa numquam recusandae explicabo
-             soluta labore quaerat excepturi deleniti ipsa aut facere
-             blanditiis, sit debitis, dolorem, quam? Quod, adipisci.
-           </p>
+      <h1 style={{color: 'white'}}>{title}</h1>
+      <p>{children}</p>
     </section>
   );
 }

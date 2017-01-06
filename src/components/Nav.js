@@ -13,6 +13,7 @@ const nv = css({
   alignItems: 'center',
   padding: '35px 0px',
   transition: 'all 200ms ease-in-out',
+  zIndex: '1111',
 })
 
 const cont = css({
@@ -43,10 +44,6 @@ const lk = css({
   ':hover': {
     fontWeight: 'bold',
   }
-})
-
-const active = css({
-    fontWeight: 'bold',
 })
 
 const Scrolled = css({
@@ -101,12 +98,12 @@ class Nav extends Component {
             </Link>
           </div>
           <ul className={ul}>
-            <li><IndexLink className={lk} to="/" {...style({color: `${color}` })} activeClassName={active}>Home</IndexLink></li>
-            <li><Link className={lk} to="portal" {...style({color: `${color}` })} activeClassName={active}>portal</Link></li>
-            <li><Link className={lk} to="profissionais" {...style({color: `${color}` })} activeClassName={active}>profissionais</Link></li>
-            <li><Link className={lk} to="forum" {...style({color: `${color}` })} activeClassName={active}>fórum</Link></li>
-            <li><Link className={lk} to="eventos" {...style({color: `${color}` })} activeClassName={active}>eventos</Link></li>
-            <li><Link className={lk} to="contato" {...style({color: `${color}` })} activeClassName={active}>contato</Link></li>
+            <li><IndexLink className={lk} to="/" {...style({color: `${color}` })} activeClassName="active">Home</IndexLink></li>
+            <li><Link className={lk} to="portal" {...style({color: `${color}` })} activeClassName="active">portal</Link></li>
+            <li><Link className={lk} to="profissionais" {...style({color: `${color}` })} activeClassName="active">profissionais</Link></li>
+            <li><Link className={lk} to="forum" {...style({color: `${color}` })} activeClassName="active">fórum</Link></li>
+            <li><Link className={lk} to="eventos" {...style({color: `${color}` })} activeClassName="active">eventos</Link></li>
+            <li><Link className={lk} to="contato" {...style({color: `${color}` })} activeClassName="active">contato</Link></li>
           </ul>
 
         </div>

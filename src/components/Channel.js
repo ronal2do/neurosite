@@ -44,7 +44,7 @@ const header = css({
   fontFamily: Globals.fonts.primary,
   textTransform: 'uppercase',
   fontWeight: '100',
-  maxWidth: 320,
+  maxWidth: 600,
   color: 'white',
   flexWrap: 'wrap',
 })
@@ -54,17 +54,15 @@ const date = css({
   padding: '20px 30px',
 })
 
-const Evento = ({event}) => {
+const Channel = ({video}) => {
   return (
     <div className={cont}>
       <div className={header}>
-        <div className={date}>14 nov</div>
-        <div>pin</div>
-        <div>São Paulo</div>
+        <img src={`http://img.youtube.com/vi/${video.youtube}/mqdefault.jpg`} alt="Hora de dormir" width="600px" />
       </div>
       <div>
-        <h1 className={h2}>{event.title}</h1>
-        <p>{event.body}</p>
+        <h1 className={h2}>{video.title}</h1>
+        <p>{video.body}</p>
 
       </div>
       <div className={header}>
@@ -81,4 +79,4 @@ const Evento = ({event}) => {
   );
 }
 
-export default Evento;
+export default Channel;
