@@ -25,7 +25,7 @@ const Banner = ({ children, image, title, color }) => {
       {...style({backgroundColor: `${color}`, backgroundImage: `url(${image})`} )}
     >
       <h1 style={{color: 'white'}}>{title}</h1>
-      <p>{children}</p>
+      <p {...style({color: 'black'})}>{children}</p>
     </section>
   );
 }
