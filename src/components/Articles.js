@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Globals from '../utils/Globals';
 
 import Article from './Article';
@@ -30,16 +30,33 @@ const btn = css({
   borderRadius: 3,
 })
 
-const Articles = ({articles}) => {
-  return (
-    <div className={cont}>
-      {articles.map((article, key) => {
-          return <Article key={article._id} article={article} />;
-      })}
+class Articles extends Component {
+    state = {
+    	numbers: 2,
+    }
 
-      <button className={btn}>Carregar mais notícias</button>
-    </div>
-  );
+    constructor(props){
+    	super(props);
+
+    	this.moreItems = this.moreItems.bind(this)
+    }
+
+    moreItems = () => this.setState({ numbers: this.state.numbers + 2 });
+
+    render() {
+      const { articles } = this.props;
+      const { numbers } = this.state;
+
+      return (
+      <div className={cont}>
+        {articles.slice(0, numbers).map((article, key) => {
+            return <Article key={article._id} article={article} />;
+        })}
+
+        <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>
+      </div>
+    );
+  }
 }
 
 export default Articles;

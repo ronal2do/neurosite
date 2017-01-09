@@ -11,7 +11,6 @@ import Eventos from './front/Eventos';
 import Profissionais from './front/Profissionais';
 import Forum from './front/Forum';
 import Contato from './front/Contato';
-import Crawler from './front/Crawler';
 
 // Dashboard
 import Dashboard from './dashboard/dashboard';
@@ -39,6 +38,5 @@ export default (
     <Route path="signin" component={Signin} />
     <Route path="signout" component={Signout} />
     <Route path="signup" component={Signup} />
-    <Route path="crawler" component={Crawler} />
   </Router>
 );

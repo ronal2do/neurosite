@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Globals from '../utils/Globals';
 import { css } from 'glamor';
 
@@ -52,18 +52,38 @@ const btns = css({
 
 })
 
-const LessonList = ({lessons}) => {
-  return (
-    <div className={cont}>
-        {lessons.map((lesson, key) => {
-            return <Lesson key={lesson._id} lesson={lesson} />;
-        })}
-      <div className={btns}>
-        <button className={btn}>Carregar mais notícias</button>
-        <button className={btn}>Carregar mais notícias</button>
-      </div>
-    </div>
-  );
+class LessonList extends Component {
+    state = {
+    	numbers: 2,
+    }
+
+    constructor(props){
+    	super(props);
+
+      this.moreItems = this.moreItems.bind(this)
+    	this.minusItems = this.minusItems.bind(this)
+    }
+
+    moreItems = () => this.setState({ numbers: this.state.numbers + 2 });
+
+    minusItems = () => this.setState({ numbers: this.state.numbers - 2 });
+
+    render() {
+      const { lessons } = this.props;
+      const { numbers } = this.state;
+
+      return (
+        <div className={cont}>
+          {lessons.slice(0, numbers).map((lesson, key) => {
+              return <Lesson key={lesson._id} lesson={lesson} />;
+          })}
+          <div className={btns}>
+            <button className={btn} onClick={this.moreItems}>Carregar mais notícias</button>
+            <button className={btn} onClick={this.minusItems}>Carregar menos notícias</button>
+          </div>
+        </div>
+    );
+  }
 }
 
 export default LessonList;

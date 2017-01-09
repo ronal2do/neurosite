@@ -1,29 +1,50 @@
 import React, { Component } from 'react';
+import {style} from 'glamor';
 
-import 'expose?$!expose?jQuery!jquery'; // eslint-disable-line
-import OwlCarousel from 'react-owl-carousel';
-import Channel from './Channel';
+import Channel from './ChannelTest';
 
 class VideoList extends Component {
-  componentDidMount() {
+  state = {
+  	videoIndex: 0,
+  }
 
+  nextStep = () => this.setState({ videoIndex: this.state.videoIndex + 1 });
+
+  prevStep = () => this.setState({ videoIndex: this.state.videoIndex - 1 });
+
+  renderVideos () {
+
+    const { videos } = this.props;
+
+    return videos.map((video, index) => {
+      // const { videoIndex } = this.state
+
+      return (
+        <Channel key={video._id} video={video} />
+      )
+    })
   }
 
   render() {
-    const { videos } = this.props;
+
+    // const { videos } = this.props;
 
     return (
-        <OwlCarousel
-          slideSpeed={300}
-          items={3}
-          stagePadding={100}
-          navigation
-          autoPlay
-        >
-          {videos.map((video, key) => {
+      <div>
+        <div {...style({display: 'flex'})}>
+
+            {/* {videos.slice(0,3).map((video, key) => {
               return <Channel key={video._id} video={video} />;
-          })}
-        </OwlCarousel>
+            })} */}
+
+           <Channel title="Lorem dolem ipsum" youtube="tpjhftAYUAQ" body="aaa"/>
+           <Channel title="Lorem dolem ipsum" youtube="k4zizW0btsg" body="aaa" active/>
+           <Channel title="Lorem dolem ipsum" youtube="MA240SwOsxU" body="aaa"/>
+
+          {/* {videos[this.state.videoIndex]} */}
+          {/* {this.renderVideos()} */}
+        </div>
+      </div>
     );
   }
 }

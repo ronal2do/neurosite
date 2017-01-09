@@ -13,7 +13,8 @@ const cont = css({
 
   '@media (max-width: 767px)': {
       width: '100%',
-      padding: '0px',
+      padding: '20px',
+      maxWidth: '100%',
   },
 })
 
@@ -26,8 +27,7 @@ const conc = css({
   maxWidth: '25%',
 
   '@media (max-width: 767px)': {
-      width: '100%',
-      padding: '0px',
+      display: 'none',
   },
 })
 
@@ -70,18 +70,18 @@ const header = css({
   width: '100%',
   height: '261',
   backgroundSize: 'cover',
+  backgroundPosition: 'center',
 })
 
-const Channel = ({video}) => {
-  return video.active ? (
+const Channel = ({title, active, youtube}) => {
+  return active ? (
     <div className={cont} >
-      <h1 className={h2}>{video.title}</h1>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${video.youtube}/maxresdefault.jpg)`, maxWidth: '100%' })}>
-        <img src="" alt=""/>
+      <h1 className={h2}>{title}</h1>
+      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`})}>
       </div>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
         <div>
-          <h1 className={h2}>{video.title}</h1>
+          <h1 className={h2}>{title}</h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
              iste error minima, nostrum
@@ -96,9 +96,9 @@ const Channel = ({video}) => {
   ) : (
     <div className={conc} >
       <br/>
-      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{video.title}</h4>
+      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{title}</h4>
       <br/>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${video.youtube}/maxresdefault.jpg)`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
+      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
     </div>
   );
 }

@@ -6,8 +6,6 @@ import Search from '../components/Search';
 import Articles from '../components/Articles';
 import Footer from '../components/Footer';
 
-import brodman from '../media/images/brodman.png';
-
 const articles = [
   {
     "_id": "586d398718490720d3fe93d6",
@@ -48,7 +46,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Hero image={brodman} />
+        <Hero />
+
         <Section color="white">
           <Search />
         </Section>
