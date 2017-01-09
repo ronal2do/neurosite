@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
-import {style} from 'glamor';
+import {css,style} from 'glamor';
 
-import Channel from './ChannelTest';
+import Channel from './Channel';
+
+const nll = css({
+  border: 'none',
+  padding: '0px 30px',
+  marginBottom: 45,
+  textAlign: 'center',
+  width: '25%',
+  maxWidth: '25%',
+
+  '@media (max-width: 767px)': {
+      display: 'none',
+  },
+})
+
 
 class VideoList extends Component {
   state = {
@@ -12,37 +26,43 @@ class VideoList extends Component {
 
   prevStep = () => this.setState({ videoIndex: this.state.videoIndex - 1 });
 
-  renderVideos () {
-
-    const { videos } = this.props;
-
-    return videos.map((video, index) => {
-      // const { videoIndex } = this.state
-
-      return (
-        <Channel key={video._id} video={video} />
-      )
-    })
-  }
-
   render() {
 
-    // const { videos } = this.props;
+    const { videos } = this.props;
+    const { videoIndex } = this.state;
+    const MAX = videos.length;
 
     return (
       <div>
         <div {...style({display: 'flex'})}>
 
-            {/* {videos.slice(0,3).map((video, key) => {
-              return <Channel key={video._id} video={video} />;
-            })} */}
+           {videoIndex >= 1 ?
+             <Channel
+               title={videos[videoIndex - 1].title}
+               youtube={videos[videoIndex - 1].youtube}
+               body={videos[videoIndex - 1].body}
+              /> : <div className={nll}></div>
+           }
 
-           <Channel title="Lorem dolem ipsum" youtube="tpjhftAYUAQ" body="aaa"/>
-           <Channel title="Lorem dolem ipsum" youtube="k4zizW0btsg" body="aaa" active/>
-           <Channel title="Lorem dolem ipsum" youtube="MA240SwOsxU" body="aaa"/>
+           <Channel
+             title={videos[videoIndex].title}
+             youtube={videos[videoIndex].youtube}
+             body={videos[videoIndex].body}
+             prevStep={this.prevStep.bind(this)}
+             nextStep={this.nextStep.bind(this)}
+             videoIndex={videoIndex}
+             max={MAX}
+             active
+            />
 
-          {/* {videos[this.state.videoIndex]} */}
-          {/* {this.renderVideos()} */}
+          {videoIndex + 1 < MAX ?
+            <Channel
+              title={videos[videoIndex + 1].title}
+              youtube={videos[videoIndex + 1].youtube}
+              body={videos[videoIndex + 1].body}
+             /> : <div className={nll}></div>
+          }
+
         </div>
       </div>
     );

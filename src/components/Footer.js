@@ -59,11 +59,10 @@ const Footer = ({ color, contact }) => {
       <img src={logoFooter} alt="" />
 
       <ul className={ul}>
-        <li>*</li>
-        <li>*</li>
-        <li>*</li>
-        <li>*</li>
-        <li>*</li>
+        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-facebook" {...style({  padding: '0px 15px' })}></i></a></li>
+        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-linkedin" {...style({  padding: '0px 15px' })}></i></a></li>
+        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-youtube" {...style({  padding: '0px 15px' })}></i></a></li>
+        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-instagram" {...style({  padding: '0px 15px' })}></i></a></li>
       </ul>
 
       <div>Copyright 2016 neuroedu.co</div>
@@ -79,11 +78,10 @@ const Footer = ({ color, contact }) => {
          </div>
         <div {...style({padding: '0 15px'})}>
           <ul className={ul}>
-            <li>*Pic</li>
-            <li>*Pic</li>
-            <li>*Pic</li>
-            <li>*Pic</li>
-            <li>*Pic</li>
+            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-facebook" {...style({  padding: '0px 15px' })}></i></a></li>
+            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-linkedin" {...style({  padding: '0px 15px' })}></i></a></li>
+            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-youtube" {...style({  padding: '0px 15px' })}></i></a></li>
+            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-instagram" {...style({  padding: '0px 15px' })}></i></a></li>
           </ul>
         </div>
       </div>

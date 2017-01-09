@@ -37,6 +37,16 @@ class Hero extends Component {
 
   prevStep = () => this.setState({ sliderIndex: this.state.sliderIndex - 1 });
 
+  componentDidMount() {
+    const { sliderIndex } = this.state;
+
+    if (sliderIndex > sliderIndex.length) {
+      setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex - 1}), 5000);
+    }
+    setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex + 1}), 5000);
+
+  }
+
   onDotClick (index) {
     this.setState({
       sliderIndex: index,
@@ -64,10 +74,10 @@ class Hero extends Component {
       >
         <div className={controller}>
           <span {...style({cursor: 'pointer'})} onClick={this.nextStep.bind(this)}>
-            <img src={arrow} alt=""/>
+            <img src={arrow} alt="Arrow" />
           </span>
           <span {...style({cursor: 'pointer', transform: 'rotate(180deg)'})} onClick={this.prevStep.bind(this)}>
-            <img src={arrow} alt="" />
+            <img src={arrow} alt="Arrow" />
           </span>
         </div>
       </section>

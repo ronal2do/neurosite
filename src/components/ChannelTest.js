@@ -3,6 +3,8 @@ import Globals from '../utils/Globals';
 
 import { css, style } from 'glamor';
 
+import Seta from '../media/images/Seta.svg';
+
 const cont = css({
   border: 'none',
   padding: '0px 30px',
@@ -57,6 +59,13 @@ const btn = css({
   borderRadius: 3,
 })
 
+const nll = css({
+  border: 'none',
+  background: 'transparent',
+  padding: 20,
+  cursor: 'disabled',
+})
+
 const header = css({
   display: 'flex',
   justifyContent: 'space-between',
@@ -73,7 +82,7 @@ const header = css({
   backgroundPosition: 'center',
 })
 
-const Channel = ({title, active, youtube}) => {
+const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max}) => {
   return active ? (
     <div className={cont} >
       <h1 className={h2}>{title}</h1>
@@ -88,8 +97,9 @@ const Channel = ({title, active, youtube}) => {
           </p>
         </div>
         <div {...style({display: 'flex'})}>
-          <button className={btn}>D</button>
-          <button className={btn}>B</button>
+
+        {  videoIndex >= 1 ? <button onClick={prevStep} className={btn}><img src={Seta} alt="" {...style({transform: 'rotate(180deg)'})}/></button> : <div className={nll}></div> }
+        {  videoIndex + 1 < max ? <button onClick={nextStep} className={btn}><img src={Seta} alt=""/></button> : <div className={nll}></div> }
         </div>
       </div>
     </div>

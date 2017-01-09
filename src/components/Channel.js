@@ -3,6 +3,8 @@ import Globals from '../utils/Globals';
 
 import { css, style } from 'glamor';
 
+import Seta from '../media/images/Seta.svg';
+
 const cont = css({
   border: 'none',
   padding: '0px 30px',
@@ -13,7 +15,8 @@ const cont = css({
 
   '@media (max-width: 767px)': {
       width: '100%',
-      padding: '0px',
+      padding: '20px',
+      maxWidth: '100%',
   },
 })
 
@@ -26,8 +29,7 @@ const conc = css({
   maxWidth: '25%',
 
   '@media (max-width: 767px)': {
-      width: '100%',
-      padding: '0px',
+      display: 'none',
   },
 })
 
@@ -36,6 +38,7 @@ const h2 = css({
   fontFamily: Globals.fonts.primary,
   fontWeight: '100',
   color: 'black',
+  cursor: 'pointer',
 })
 
 const p = css({
@@ -57,6 +60,13 @@ const btn = css({
   borderRadius: 3,
 })
 
+const nll = css({
+  border: 'none',
+  background: 'transparent',
+  padding: 20,
+  cursor: 'disabled',
+})
+
 const header = css({
   display: 'flex',
   justifyContent: 'space-between',
@@ -70,35 +80,38 @@ const header = css({
   width: '100%',
   height: '261',
   backgroundSize: 'cover',
+  backgroundPosition: 'center',
 })
 
-const Channel = ({video}) => {
-  return video.active ? (
+const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max, body}) => {
+  return active ? (
     <div className={cont} >
-      <h1 className={h2}>{video.title}</h1>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${video.youtube}/maxresdefault.jpg)`, maxWidth: '100%' })}>
-        <img src="" alt=""/>
+      <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
+        <h1 className={h2}>{title}</h1>
+      </a>
+      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`})}>
       </div>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
         <div>
-          <h1 className={h2}>{video.title}</h1>
+          <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
+            <h1 className={h2}>{title}</h1>
+          </a>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-             iste error minima, nostrum
+            {body.substr(0, 150)}
           </p>
         </div>
         <div {...style({display: 'flex'})}>
-          <button className={btn}>D</button>
-          <button className={btn}>B</button>
+        {  videoIndex >= 1 ? <button onClick={prevStep} className={btn}><img src={Seta} alt="" {...style({transform: 'rotate(180deg)'})}/></button> : <div className={nll}></div> }
+        {  videoIndex + 1 < max ? <button onClick={nextStep} className={btn}><img src={Seta} alt=""/></button> : <div className={nll}></div> }
         </div>
       </div>
     </div>
   ) : (
     <div className={conc} >
       <br/>
-      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{video.title}</h4>
+      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{title}</h4>
       <br/>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${video.youtube}/maxresdefault.jpg)`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
+      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
     </div>
   );
 }
