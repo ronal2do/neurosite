@@ -38,6 +38,7 @@ const h2 = css({
   fontFamily: Globals.fonts.primary,
   fontWeight: '100',
   color: 'black',
+  cursor: 'pointer',
 })
 
 const p = css({
@@ -68,36 +69,38 @@ const nll = css({
 
 const header = css({
   display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
+  justifyContent: 'center',
   fontFamily: Globals.fonts.primary,
   textTransform: 'uppercase',
   fontWeight: '100',
   color: 'white',
   flexWrap: 'wrap',
-  borderRadius: 4,
-  width: '100%',
-  height: '261',
+  borderRadius: '50%',
+  height: 200,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
 })
 
-const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max}) => {
+const People = ({title, active, youtube, nextStep, prevStep, videoIndex, max, body}) => {
   return active ? (
     <div className={cont} >
-      <h1 className={h2}>{title}</h1>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`})}>
+      <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
+        <h1 className={h2}>{title}</h1>
+      </a>
+      <div className={header}>
+        <img src={`http://img.youtube.com/vi/${youtube}/maxresdefault.jpg`} alt="" {...style({width: 150, borderRadius: '50%', height: 150})}/>
       </div>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
         <div>
-          <h1 className={h2}>{title}</h1>
+          <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
+            <h1 className={h2}>{title}</h1>
+          </a>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-             iste error minima, nostrum
+            {body.substr(0, 150)}
           </p>
         </div>
         <div {...style({display: 'flex'})}>
-
         {  videoIndex >= 1 ? <button onClick={prevStep} className={btn}><img src={Seta} alt="" {...style({transform: 'rotate(180deg)'})}/></button> : <div className={nll}></div> }
         {  videoIndex + 1 < max ? <button onClick={nextStep} className={btn}><img src={Seta} alt=""/></button> : <div className={nll}></div> }
         </div>
@@ -113,4 +116,4 @@ const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max}) 
   );
 }
 
-export default Channel;
+export default People;

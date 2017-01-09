@@ -32,7 +32,7 @@ const btn = css({
 
 class Articles extends Component {
     state = {
-    	numbers: 2,
+    	numbers: 4,
     }
 
     constructor(props){
@@ -41,11 +41,12 @@ class Articles extends Component {
     	this.moreItems = this.moreItems.bind(this)
     }
 
-    moreItems = () => this.setState({ numbers: this.state.numbers + 2 });
+    moreItems = () => this.setState({ numbers: this.state.numbers + 4 });
 
     render() {
       const { articles } = this.props;
       const { numbers } = this.state;
+      const MAX = articles.length;
 
       return (
       <div className={cont}>
@@ -53,7 +54,7 @@ class Articles extends Component {
             return <Article key={article._id} article={article} />;
         })}
 
-        <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>
+        { numbers <= MAX ? <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>: null }
       </div>
     );
   }
