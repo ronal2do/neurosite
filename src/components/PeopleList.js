@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Globals from '../utils/Globals';
 
-import {css,style} from 'glamor';
+import { css, style } from 'glamor';
 
 import Section from './Section';
 import People from './People';

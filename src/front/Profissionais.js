@@ -84,9 +84,7 @@ class Prosissionais extends Component {
       <div>
         <Banner title="Prosissionais" image={teste} />
         <Section color={Globals.colors.green} ></Section>
-
         <PeopleList peoples={profissionais}/>
-
         <Footer color="white"/>
       </div>
     );

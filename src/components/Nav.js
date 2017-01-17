@@ -14,7 +14,41 @@ const nv = css({
   padding: '35px 0px',
   transition: 'all 200ms ease-in-out',
   zIndex: '1111',
+  flexDirection: 'column',
 })
+
+const mob = css({
+  display: 'flex',
+  padding: '10px',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+
+  '@media (min-width: 767px)': {
+    display: 'none',
+  },
+})
+
+const mobs = css({
+  listStyle: 'none',
+  lineHeight: 2,
+  '@media (min-width: 767px)': {
+    display: 'none',
+  },
+})
+
+const men = css({
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  flexDirection: 'column',
+  width: '100vw',
+  background: 'rgba(255,255,255,.975)',
+  height: 'calc(100vh - 50px)',
+  '@media (max-width: 767px)': {
+
+  },
+})
+
 
 const cont = css({
   display: 'flex',
@@ -22,6 +56,9 @@ const cont = css({
   alignItems: 'center',
   width: '100%',
   maxWidth: '1100px',
+  '@media (max-width: 767px)': {
+    display: 'none',
+  },
 })
 
 const ul = css({
@@ -55,8 +92,14 @@ const Scrolled = css({
 
 class Nav extends Component {
   state = {
-    isToggleOn: false
+    isToggleOn: false,
+    sidebarOpen: false,
   };
+
+  constructor(props){
+  	super(props);
+    this.handleMenu = this.handleMenu.bind(this);
+  }
 
   componentDidMount = () => {
     global.addEventListener('scroll', this.handleScroll);
@@ -80,10 +123,20 @@ class Nav extends Component {
     }
   };
 
+  handleMenu() {
+    this.setState(prevState => ({
+      sidebarOpen: !prevState.sidebarOpen
+    }));
+  }
+
   render() {
-    const {isToggleOn} = this.state;
+    const {
+      isToggleOn,
+      sidebarOpen
+    } = this.state;
     const test = isToggleOn ? Scrolled : null;
     const color = isToggleOn ? Globals.colors.logo2 : '#fff';
+    const menu = sidebarOpen ? 'menu-button push' : 'menu-button';
 
     return (
       <div className={`${nv} ${test}`}>
@@ -97,6 +150,7 @@ class Nav extends Component {
               }
             </Link>
           </div>
+
           <ul className={ul}>
             <li><IndexLink className={lk} to="/" {...style({color: `${color}` })} activeClassName="active">Home</IndexLink></li>
             <li><Link className={lk} to="portal" {...style({color: `${color}` })} activeClassName="active">portal</Link></li>
@@ -107,6 +161,34 @@ class Nav extends Component {
           </ul>
 
         </div>
+
+        <div className={mob}>
+          <Link to="/">
+            { isToggleOn ?
+              <Logo color={Globals.colors.logo} colorSec={Globals.colors.logo2} color3=""/> :
+              <Logo color="#ffffff" colorSec="#ffffff" color3="#ffffff" />
+            }
+          </Link>
+          <div className={menu} onClick={this.handleMenu} >
+            <span className="before"></span>
+            <span className="main"></span>
+            <span className="after"></span>
+          </div>
+        </div>
+
+        {sidebarOpen ?
+          <div className={men}>
+            <ul className={mobs}>
+              <li><IndexLink className={lk} to="/" {...style({color: `${Globals.colors.logo2}` })} activeClassName="active" onClick={this.handleMenu}>Home</IndexLink></li>
+              <li><Link className={lk} to="portal" {...style({color: `${Globals.colors.logo2}` })} activeClassName="active" onClick={this.handleMenu}>portal</Link></li>
+              <li><Link className={lk} to="profissionais" {...style({color: `${Globals.colors.logo2}` })} activeClassName="active" onClick={this.handleMenu}>profissionais</Link></li>
+              <li><Link className={lk} to="forum" {...style({color: `${Globals.colors.logo2}` })} activeClassName="active" onClick={this.handleMenu}>fórum</Link></li>
+              <li><Link className={lk} to="eventos" {...style({color: `${Globals.colors.logo2}` })} activeClassName="active" onClick={this.handleMenu}>eventos</Link></li>
+              <li><Link className={lk} to="contato" {...style({color: `${Globals.colors.logo2}` })} activeClassName="active" onClick={this.handleMenu}>contato</Link></li>
+            </ul>
+          </div> :  null
+        }
+
       </div>
     );
   }

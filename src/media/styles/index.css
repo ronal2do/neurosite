@@ -98,3 +98,47 @@ p {
   color: white;
   font-weight: 100;
 }
+
+
+/*Menu*/
+
+.menu-button {
+  cursor: pointer;
+  display: block;
+  width: 25px;
+  height: 20px;
+  right: 15px;
+  top: 20px;
+  position: absolute;
+}
+
+.menu-button:hover .before {
+    transform: translateY(-2px);
+}
+.menu-button:hover .after {
+    transform: translateY(2px);
+}
+.menu-button .before, .menu-button .main, .menu-button .after {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #06cc9b;
+    margin-bottom: 5px;
+    transition: transform 0.2s;
+}
+
+.menu-button.push .before {
+    margin: 0;
+    margin-bottom: -1px;
+    transition: transform 0.5s;
+    transform: translateY(2px) rotate(-45deg);
+}
+.menu-button.push .after {
+    margin: 0;
+    margin-bottom: 1px;
+    transition: transform 0.5s;
+    transform: translateY(0px) rotate(45deg);
+}
+.menu-button.push .main {
+    display: none;
+}
