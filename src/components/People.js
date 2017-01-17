@@ -4,40 +4,54 @@ import Globals from '../utils/Globals';
 import { css, style } from 'glamor';
 
 import Seta from '../media/images/Seta.svg';
+import Iphone from '../media/images/iphone.png';
 
 const cont = css({
   border: 'none',
-  padding: '0px 30px',
-  marginBottom: 45,
+  padding: '60px 0px 0px',
   textAlign: 'center',
-  width: '50%',
+  backgroundImage: `url(${Iphone})`,
+  backgroundSize: 'contain',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  color: 'white',
+  width: 400,
+  height: 450,
   maxWidth: '50%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
 
   '@media (max-width: 767px)': {
-      width: '100%',
-      padding: '20px',
-      maxWidth: '100%',
+    height: 450,
+    width: '100%',
+    padding: '20px',
+    maxWidth: '100%',
   },
 })
 
 const conc = css({
   border: 'none',
   padding: '0px 30px',
-  marginBottom: 45,
   textAlign: 'center',
   width: '25%',
   maxWidth: '25%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
 
   '@media (max-width: 767px)': {
       display: 'none',
+      width: '25%',
+      maxWidth: '25%',
   },
 })
-
 
 const h2 = css({
   fontFamily: Globals.fonts.primary,
   fontWeight: '100',
-  color: 'black',
+  color: Globals.colors.green,
   cursor: 'pointer',
 })
 
@@ -46,7 +60,6 @@ const p = css({
   color: Globals.colors.gray,
   lineHeight: '1em',
 })
-
 
 const btn = css({
   border: 'none',
@@ -63,7 +76,7 @@ const btn = css({
 const nll = css({
   border: 'none',
   background: 'transparent',
-  padding: 20,
+  padding: '0 40px',
   cursor: 'disabled',
 })
 
@@ -82,36 +95,50 @@ const header = css({
   backgroundPosition: 'center',
 })
 
-const People = ({title, active, youtube, nextStep, prevStep, videoIndex, max, body}) => {
+const People = ({
+  name,
+  active,
+  image,
+  nextStep,
+  prevStep,
+  peopleIndex,
+  max,
+  office
+}) => {
   return active ? (
     <div className={cont} >
-      <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
-        <h1 className={h2}>{title}</h1>
-      </a>
       <div className={header}>
-        <img src={`http://img.youtube.com/vi/${youtube}/maxresdefault.jpg`} alt="" {...style({width: 150, borderRadius: '50%', height: 150})}/>
+        <div className={header} {...style({backgroundImage: `url(${image})`, backgroundSize: 'cover', maxWidth: '170', height: '170', width: 170, marginTop: 140})}></div>
       </div>
-      <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
-        <div>
-          <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
-            <h1 className={h2}>{title}</h1>
-          </a>
+      <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left', justifyContent: 'space-between', alignItems: 'center' })}>
+        <div {...style({display: 'flex'})}>
+         {
+            peopleIndex >= 1 ?
+            <button onClick={prevStep} className={btn}><img src={Seta} alt="" {...style({transform: 'rotate(180deg)'})}/></button>
+            : <div className={nll}></div>
+          }
+        </div>
+        <div {...css({textAlign: 'center'})}>
+          <h1 className={h2}>{name}</h1>
           <p>
-            {body.substr(0, 150)}
+            {office}
           </p>
         </div>
         <div {...style({display: 'flex'})}>
-        {  videoIndex >= 1 ? <button onClick={prevStep} className={btn}><img src={Seta} alt="" {...style({transform: 'rotate(180deg)'})}/></button> : <div className={nll}></div> }
-        {  videoIndex + 1 < max ? <button onClick={nextStep} className={btn}><img src={Seta} alt=""/></button> : <div className={nll}></div> }
+         {
+            peopleIndex + 1 < max ?
+            <button onClick={nextStep} className={btn}><img src={Seta} alt=""/></button>
+            : <div className={nll}></div>
+          }
         </div>
       </div>
     </div>
   ) : (
     <div className={conc} >
       <br/>
-      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{title}</h4>
+      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{name}</h4>
       <br/>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
+      <div className={header} {...style({backgroundImage: `url(${image})`, maxWidth: '100', height: '100', width: 100, filter: 'grayscale(100%)', opacity: 0.7})}></div>
     </div>
   );
 }

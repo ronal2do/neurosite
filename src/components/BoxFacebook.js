@@ -18,6 +18,8 @@ const sec = css({
   backgroundPosition: 'center',
   backgroundColor: '#3b5998',
   fontFamily: Globals.fonts.secundary,
+  borderRight: '1px solid white',
+  borderLeft: '1px solid white',
 });
 
 const foot = css({
@@ -59,12 +61,12 @@ class BoxFacebook extends Component {
     return (
       <section className={sec} >
         <h1 style={{color: 'white'}}>{moment(post.created_time).fromNow()}</h1>
-        <p>
+        <p {...css({padding: '30px 50px'})}>
           {post.message}
         </p>
         <div className={foot}>
-          <div>F</div>
-          <div>Like</div>
+          <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px', borderRight: '1px solid white',})}>F</div>
+          <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px'})}>Like</div>
         </div>
       </section>
     );

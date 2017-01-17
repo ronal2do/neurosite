@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav';
-import './media/styles/index.css';
 import 'glamor/reset';
+import './media/styles/index.css';
 
 class App extends Component {
-
   render() {
     return (
       <div>

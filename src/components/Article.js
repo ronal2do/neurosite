@@ -12,6 +12,13 @@ const cont = css({
   },
 })
 
+const bd = css({
+  padding: '45px 65px',
+  '@media (max-width: 767px)': {
+    padding: '15px 25px',
+  },
+})
+
 const h2 = css({
   fontFamily: Globals.fonts.secundary,
   color: 'black',
@@ -29,7 +36,7 @@ const Article = ({article}) => {
       <div>
         <img src={article.image} alt={article.title} width="100%" />
       </div>
-      <div {...css({padding: '45px 65px'})}>
+      <div className={bd} >
         <h1 className={h2}>{article.title}</h1>
         <p>{article.body}</p>
       </div>
