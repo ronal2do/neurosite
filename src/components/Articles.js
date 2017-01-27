@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Globals from '../utils/Globals';
 
+// import { getNewsList } from '../utils/api';
+import axios from 'axios';
 import Article from './Article';
 
 import { css } from 'glamor';
@@ -31,27 +33,32 @@ const btn = css({
 })
 
 class Articles extends Component {
-    state = {
-    	numbers: 4,
-    }
+    state = { numbers: 10, newests: [] }
 
-    constructor(props){
-    	super(props);
+    componentDidMount = () => {
+      this.getNews();
+    };
 
-    	this.moreItems = this.moreItems.bind(this)
-    }
+     getNews = () => {
+        axios.get('http://localhost:8000/api/newest')
+          .then(response => {
+            this.setState({newests: response.data})
+         })
+         .catch(function (error) {
+           console.log(error);
+       });
+    };
 
-    moreItems = () => this.setState({ numbers: this.state.numbers + 4 });
+    moreItems = () => this.setState({ numbers: this.state.numbers + 10 });
 
     render() {
-      const { articles } = this.props;
-      const { numbers } = this.state;
-      const MAX = articles.length;
+      const { numbers, newests } = this.state;
+      const MAX = newests.length;
 
       return (
       <div className={cont}>
-        {articles.slice(0, numbers).map((article, key) => {
-            return <Article key={article._id} article={article} />;
+        {newests.slice(0, numbers).map((article, key) => {
+            return <Article key={article.id} article={article} />;
         })}
 
         { numbers <= MAX ? <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>: null }

@@ -33,7 +33,6 @@ const conc = css({
   },
 })
 
-
 const h2 = css({
   fontFamily: Globals.fonts.primary,
   fontWeight: '100',
@@ -46,7 +45,6 @@ const p = css({
   color: Globals.colors.gray,
   lineHeight: '1em',
 })
-
 
 const btn = css({
   border: 'none',

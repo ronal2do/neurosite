@@ -75,7 +75,7 @@ class LessonList extends Component {
       return (
         <div className={cont}>
           {lessons.slice(0, numbers).map((lesson, key) => {
-              return <Lesson key={lesson._id} lesson={lesson} />;
+              return <Lesson key={lesson.id} lesson={lesson} />;
           })}
           <div className={btns}>
             <button className={btn} onClick={this.moreItems}>Carregar mais notícias</button>

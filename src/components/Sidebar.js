@@ -26,7 +26,7 @@ const Sidebar = ({categories}) => {
     <div className={cont}>
       <h1>Artigos</h1>
         {categories.map((categorie, key) => {
-            return <a href key={categorie._id}>#{categorie.name}</a>;
+            return <a href key={categorie.id}>#{categorie.title}</a>;
         })}
     </div>
   );

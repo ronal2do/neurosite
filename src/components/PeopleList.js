@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Globals from '../utils/Globals';
+import axios from 'axios';
 
 import { css, style } from 'glamor';
 
@@ -71,18 +72,33 @@ const h2 = css({
 
 class PeopleList extends Component {
   state = {
-  	peopleIndex: 0,
+  	professional: [],
+    peopleIndex: [0],
   }
 
   nextStep = () => this.setState({ peopleIndex: this.state.peopleIndex + 1 });
 
   prevStep = () => this.setState({ peopleIndex: this.state.peopleIndex - 1 });
 
-  render() {
+  componentDidMount = () => {
+    this.getProfessionals();
+  };
 
-    const { peoples } = this.props;
-    const { peopleIndex } = this.state;
-    const MAX = peoples.length;
+ getProfessionals = () => {
+    axios.get('http://localhost:8000/api/professional')
+      .then(response => {
+        this.setState({professional: response.data});
+        // console.log(response);
+     })
+     .catch(function (error) {
+       console.log(error);
+   });
+  };
+
+  render() {
+    const { professional, peopleIndex,  } = this.state;
+
+    const MAX = professional.length;
 
     return (
       <div>
@@ -94,28 +110,28 @@ class PeopleList extends Component {
 
                {peopleIndex >= 1 ?
                  <People
-                   name={peoples[peopleIndex - 1].name}
-                   image={peoples[peopleIndex - 1].image}
-                   office={peoples[peopleIndex - 1].office}
+                   name={professional[peopleIndex - 1].name}
+                   image={professional[peopleIndex - 1].image}
+                   office={professional[peopleIndex - 1].office}
                   /> : <div className={nll}></div>
                }
-
-              <People
-                name={peoples[peopleIndex].name}
-                image={peoples[peopleIndex].image}
-                office={peoples[peopleIndex].office}
-                prevStep={this.prevStep.bind(this)}
-                nextStep={this.nextStep.bind(this)}
-                peopleIndex={peopleIndex}
-                max={MAX}
-                active
-              />
-
-              {peopleIndex + 1 < MAX ?
+              {professional.length > 0 ?
                 <People
-                  name={peoples[peopleIndex + 1].name}
-                  image={peoples[peopleIndex + 1].image}
-                  office={peoples[peopleIndex + 1].office}
+                  name={professional[peopleIndex].name}
+                  image={professional[peopleIndex].image}
+                  office={professional[peopleIndex].office}
+                  prevStep={this.prevStep}
+                  nextStep={this.nextStep}
+                  peopleIndex={peopleIndex}
+                  max={MAX}
+                  active
+                />
+              :null}
+              {professional.length + 1 < MAX ?
+                <People
+                  name={professional[peopleIndex + 1].name}
+                  image={professional[peopleIndex + 1].image}
+                  office={professional[peopleIndex + 1].office}
                  /> : <div className={nll}></div>
               }
 
@@ -124,7 +140,9 @@ class PeopleList extends Component {
         </Section>
         <Section color="#1E2B31" nopadding>
           <div className={text}>
-            <p>{peoples[peopleIndex].body}</p>
+            {professional.length > 0 ?
+            <p>{professional[peopleIndex].body}</p>
+            : null }
           </div>
         </Section>
       </div>

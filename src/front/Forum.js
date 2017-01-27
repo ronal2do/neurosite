@@ -123,9 +123,9 @@ class Forum extends Component {
           </Container>
         </Section>
 
-        <Section color="rgb(36, 40, 43)">
+        {/* <Section color="rgb(36, 40, 43)">
           event list
-        </Section>
+        </Section> */}
         <Footer color="#1e2326"/>
       </div>
     );

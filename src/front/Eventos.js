@@ -47,6 +47,8 @@ const events = [
 ]
 
 class Eventos extends Component {
+  
+
   render() {
     return (
       <div>
@@ -61,7 +63,6 @@ class Eventos extends Component {
           <EventForm color={Globals.colors.red}/>
         </Section>
         <Footer color="white"/>
-
       </div>
     );
   }

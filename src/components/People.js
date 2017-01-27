@@ -108,7 +108,7 @@ const People = ({
   return active ? (
     <div className={cont} >
       <div className={header}>
-        <div className={header} {...style({backgroundImage: `url(${image})`, backgroundSize: 'cover', maxWidth: '170', height: '170', width: 170, marginTop: 140})}></div>
+        {image ? <div className={header} {...style({backgroundImage: `url(${image})`, backgroundSize: 'cover', maxWidth: '170', height: '170', width: 170, marginTop: 140})}></div> : null}
       </div>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left', justifyContent: 'space-between', alignItems: 'center' })}>
         <div {...style({display: 'flex'})}>
@@ -138,7 +138,7 @@ const People = ({
       <br/>
       <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{name}</h4>
       <br/>
-      <div className={header} {...style({backgroundImage: `url(${image})`, maxWidth: '100', height: '100', width: 100, filter: 'grayscale(100%)', opacity: 0.7})}></div>
+      <div className={header} {...style({backgroundImage: `url(/uploads/professional/${image})`, maxWidth: '100', height: '100', width: 100, filter: 'grayscale(100%)', opacity: 0.7})}></div>
     </div>
   );
 }

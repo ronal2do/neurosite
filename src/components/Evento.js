@@ -35,6 +35,7 @@ const btn = css({
   textTransform: 'uppercase',
   letterSpacing: '0.7em',
   borderRadius: 3,
+  textDecoration: 'none',
 })
 
 const header = css({
@@ -58,25 +59,21 @@ const Evento = ({event}) => {
   return (
     <div className={cont}>
       <div className={header}>
-        <div className={date}>14 nov</div>
+        <div className={date}>{event.date}</div>
         <div>pin</div>
         <div>São Paulo</div>
       </div>
       <div>
         <h1 className={h2}>{event.title}</h1>
         <p>{event.body}</p>
-
       </div>
       <div className={header}>
-        <p>#HashTags</p>
-        <p>#HashTags</p>
-          <p>#HashTags</p>
-            <p>#HashTags</p>
-              <p>#HashTags</p>
-        <p>#HashTags</p>
+        <p>{event.tags}</p>
+        <br/>
+          <p></p>
+        <p></p>
       </div>
-      <button className={btn}>inscreva-se</button>
-
+      <a href={event.link} target="_blank" className={btn}>inscreva-se</a>
     </div>
   );
 }
