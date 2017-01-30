@@ -73,7 +73,7 @@ const h2 = css({
 class PeopleList extends Component {
   state = {
   	professional: [],
-    peopleIndex: [0],
+    peopleIndex: 0,
   }
 
   nextStep = () => this.setState({ peopleIndex: this.state.peopleIndex + 1 });
@@ -84,14 +84,22 @@ class PeopleList extends Component {
     this.getProfessionals();
   };
 
- getProfessionals = () => {
-    axios.get('http://localhost:8000/api/professional')
+  getProfessionals = () => {
+    this.setState({
+      isLoading: true,
+    });
+
+    // axios.get(`${window.location.origin}/api/professional`)
+    axios.get(`http://neuroedu.co/api/professional`)
       .then(response => {
         this.setState({professional: response.data});
-        // console.log(response);
      })
-     .catch(function (error) {
+     .catch((error) => {
        console.log(error);
+   });
+
+   this.setState({
+     isLoading: false,
    });
   };
 

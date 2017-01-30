@@ -34,7 +34,7 @@ const Article = ({article}) => {
   return (
     <div className={cont}>
       <div>
-        <img src={`/uploads/novidades/${article.image}`} alt={article.title} width="100%" />
+        <img src={`${window.location.origin}/uploads/novidades/${article.image}`} alt={article.title} width="100%" />
       </div>
       <div className={bd} >
         <h1 className={h2}>{article.title}</h1>

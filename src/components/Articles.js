@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Globals from '../utils/Globals';
-
-// import { getNewsList } from '../utils/api';
 import axios from 'axios';
+// import { getNewestList } from '../utils/api';
 import Article from './Article';
-
 import { css } from 'glamor';
 
 const cont = css({
@@ -33,37 +31,75 @@ const btn = css({
 })
 
 class Articles extends Component {
-    state = { numbers: 10, newests: [] }
+    state = {
+      isLoading: true,
+      numbers: 10,
+      newests: []
+    }
 
     componentDidMount = () => {
       this.getNews();
     };
 
-     getNews = () => {
-        axios.get('http://localhost:8000/api/newest')
-          .then(response => {
-            this.setState({newests: response.data})
-         })
-         .catch(function (error) {
-           console.log(error);
-       });
+    getNews = () => {
+
+      this.setState({
+        isLoading: true,
+      });
+
+      axios.get(`${window.location.origin}/api/newest`)
+        .then(response => {
+          this.setState({newests: response.data});
+       })
+       .catch((error) => {
+         console.log(error);
+     });
+
+     this.setState({
+       isLoading: false,
+     });
+
     };
+
+    // getNews = async () => {
+    //   this.setState({
+    //     isLoading: true,
+    //   });
+    //
+    //   try {
+    //     const { newest } = await getNewestList();
+    //
+    //     console.log('getNewestList ' + getNewestList());
+    //     console.log('setState newests ' + [newest]);
+    //
+    //     this.setState({
+    //       newests: Object
+    //     });
+    //
+    //     console.log('Novo State Newests ' + newest);
+    //
+    //   } catch(err) {
+    //     console.log('Newest err:', err);
+    //   }
+    //
+    //   this.setState({
+    //     isLoading: false,
+    //   });
+    // };
 
     moreItems = () => this.setState({ numbers: this.state.numbers + 10 });
 
     render() {
-      const { numbers, newests } = this.state;
-      const MAX = newests.length;
+      const { numbers, newests, isLoading } = this.state;
 
-      return (
+      return !isLoading || newests.length > 0 ? (
       <div className={cont}>
-        {newests.slice(0, numbers).map((article, key) => {
-            return <Article key={article.id} article={article} />;
+        {newests.slice(0, numbers).map((newest, key) => {
+            return <Article key={newest.id} article={newest} />;
         })}
-
-        { numbers <= MAX ? <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>: null }
+        { numbers <= newests.length ? <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>: null }
       </div>
-    );
+    ) : <p> Cerregando... </p>;
   }
 }
 

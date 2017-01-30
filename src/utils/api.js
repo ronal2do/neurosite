@@ -1,61 +1,43 @@
 const API_URL = (process.env.NODE_ENV !== 'production') ?
-  'http://localhost:8000/api' :
-  'http://localhost:8000/api';
+  'http://neuroedu.co/api':
+  'http://neuroedu.co/api';
 
-export const API = (url, method = 'GET', payload = '', CUSTOM_URL = '') => {
-    const apiUrl = (CUSTOM_URL === '') ? `${API_URL}${url}` : `${CUSTOM_URL}${url}`;
+import axios from 'axios';
 
-    const token = localStorage.getItem('token2t2');
+axios.defaults.baseURL = API_URL;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-    const headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    };
+// newest
+export const getNewestList = async (id = '') => {
+  let { data } = await axios.get(`/newest/${id}`);
 
-    let options =  {
-      method: method,
-      headers: headers,
-      // mode: 'no-cors'
-    };
+  return data;
+};
 
-    if (payload !== '' && payload.length !== 0) {
-      options = Object.assign(options, { body: JSON.stringify(payload) } );
-    }
+// Category
+export const getCategoryList = async (id = '') => {
+  const { data } = await axios.get(`/category/${id}`);
 
-    console.log('URL: ', apiUrl, 'HEADERS: ', headers, 'OPTIONS: ', options);
+  return data;
+};
 
-    return new Promise((res, rej) => {
-      // if (url !== '/login' && !token) {
-      //   return rej('User is not authorized');
-      // }
+// Article
+export const getArticleList = async (id = '') => {
+  const { data } = await axios.get(`/article/${id}`);
 
-      fetch(apiUrl, options)
-        .then(response => {
-          if (response.ok) {
-            return response.json().then(res);
-          } else {
-            if (response.headers.get('Content-Type').indexOf('application/json') > -1) {
-              response.json().then(rej);
-            } else {
-              return response.text().then(rej);
-            }
-          }
-        })
-        .catch(rej);
-    });
-  };
+  return data;
+};
 
-  export const setToken = token => localStorage.setItem(token);
+// Professional
+export const getProfessionalsList = async (id = '') => {
+  const { data } = await axios.get(`/professional/${id}`);
 
-  export const login = (email, password) => API('/login', 'POST', { email, password });
+  return data;
+};
 
-  // News
-  export const getNewsList = (id = '') => API(`/newest/${id}`, 'GET');
-  export const addNews = (payload) => API('/news', 'POST', payload);
-  export const editNews = (id, payload) => API(`/news/${id}`, 'PUT', payload);
+// event
+export const getEventsList = async (id = '') => {
+  const { data } = await axios.get(`/event/${id}`);
 
-  // Artists
-  export const getArtistsList = (id = '') => API(`/artists/${id}`, 'GET');
-  export const addArtist = (payload) => API('/artist', 'POST', payload);
-  export const editArtist = (id, payload) => API(`/artist/${id}`, 'PUT', payload);
+  return data;
+};
