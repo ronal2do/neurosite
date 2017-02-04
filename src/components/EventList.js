@@ -25,7 +25,7 @@ class EventList extends Component {
     };
 
      getNews = () => {
-        axios.get('http://localhost:8000/api/event')
+       axios.get('http://neuroedu.co/api/event')
           .then(response => {
             this.setState({events: response.data})
          })

@@ -15,9 +15,32 @@ const cont = css({
   color: Globals.colors.gray,
 })
 
+// const btn = css({
+//   width: '50%',
+//   maxWidth: '1100px',
+//   border: 'none',
+//   background: '#e7e7e7',
+//   paddingTop: 30,
+//   paddingBottom: 30,
+//   cursor: 'pointer',
+//   color: Globals.colors.textGray,
+//   fontFamily: Globals.fonts.primary,
+//   textTransform: 'uppercase',
+//   letterSpacing: '0.7em',
+//   borderRadius: 3,
+//   transition: 'all 100ms linear',
+//   ':hover' : {
+//     background: 'black',
+//
+//   },
+//   '@media (max-width: 767px)': {
+//     width: '100%',
+//   },
+//
+// })
+
 const btn = css({
-  width: '50%',
-  maxWidth: '1100px',
+  width: '100%',
   border: 'none',
   background: '#e7e7e7',
   paddingTop: 30,
@@ -32,25 +55,22 @@ const btn = css({
   ':hover' : {
     background: 'black',
 
-  },
-  '@media (max-width: 767px)': {
-    width: '100%',
-  },
+  }
 
 })
-
-const btns = css({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flexDirection: 'row',
-
-  '@media (max-width: 767px)': {
-    flexDirection: 'column',
-    border: 'none',
-  },
-
-})
+//
+// const btns = css({
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'center',
+//   flexDirection: 'row',
+//
+//   '@media (max-width: 767px)': {
+//     flexDirection: 'column',
+//     border: 'none',
+//   },
+//
+// })
 
 class LessonList extends Component {
     state = {
@@ -77,10 +97,9 @@ class LessonList extends Component {
           {lessons.slice(0, numbers).map((lesson, key) => {
               return <Lesson key={lesson.id} lesson={lesson} />;
           })}
-          <div className={btns}>
-            <button className={btn} onClick={this.moreItems}>Carregar mais notícias</button>
-            <button className={btn} onClick={this.minusItems}>Carregar menos notícias</button>
-          </div>
+
+          { numbers <= lessons.length ? <button className={btn} onClick={this.moreItems} >Carregar mais artigos</button>: null }
+
         </div>
     );
   }

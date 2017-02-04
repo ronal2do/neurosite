@@ -1,6 +1,6 @@
 import React from 'react';
 import Globals from '../utils/Globals';
-
+import pin from '../media/images/pin.svg';
 import { css } from 'glamor';
 
 const cont = css({
@@ -50,6 +50,15 @@ const header = css({
   flexWrap: 'wrap',
 })
 
+const tag = css({
+  fontFamily: Globals.fonts.primary,
+  textTransform: 'uppercase',
+  fontWeight: '100',
+  maxWidth: 320,
+  color: 'white',
+  paddingBottom: 30,
+})
+
 const date = css({
   border: '1px solid white',
   padding: '20px 30px',
@@ -60,19 +69,15 @@ const Evento = ({event}) => {
     <div className={cont}>
       <div className={header}>
         <div className={date}>{event.date}</div>
-        <div>pin</div>
+        <div><img src={pin} alt=""/></div>
         <div>São Paulo</div>
       </div>
       <div>
         <h1 className={h2}>{event.title}</h1>
         <p>{event.body}</p>
+        <p className={tag}>{event.tags}</p>
       </div>
-      <div className={header}>
-        <p>{event.tags}</p>
-        <br/>
-          <p></p>
-        <p></p>
-      </div>
+
       <a href={event.link} target="_blank" className={btn}>inscreva-se</a>
     </div>
   );

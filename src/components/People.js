@@ -76,8 +76,9 @@ const btn = css({
 const nll = css({
   border: 'none',
   background: 'transparent',
-  padding: '0 40px',
+  // padding: '0 40px',
   cursor: 'disabled',
+  width: 65,
 })
 
 const header = css({

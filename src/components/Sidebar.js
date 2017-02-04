@@ -21,12 +21,23 @@ const cont = css({
   },
 })
 
+const arti = css({
+  padding: '5px 0px',
+  textDecoration: 'none',
+  color: Globals.colors.gray,
+  transition: 'color 300ms linear',
+  ':hover' : {
+    color: 'black',
+  }
+})
+
+
 const Sidebar = ({categories}) => {
   return (
     <div className={cont}>
       <h1>Artigos</h1>
         {categories.map((categorie, key) => {
-            return <a href key={categorie.id}>#{categorie.title}</a>;
+            return <a href key={categorie.id} className={arti}>#{categorie.title}</a>;
         })}
     </div>
   );

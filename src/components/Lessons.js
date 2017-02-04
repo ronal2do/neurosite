@@ -29,24 +29,43 @@ class Lessons extends Component {
   };
 
    getCats = () => {
-      axios.get('http://localhost:8000/api/category')
+       this.setState({
+         isLoading: true,
+       });
+
+      axios.get('http://neuroedu.co/api/category')
         .then(response => {
           this.setState({categories: response.data})
        })
        .catch(function (error) {
          console.log(error);
      });
+
+     this.setState({
+       isLoading: false,
+     });
+
   };
 
-  getArticles = () => {
-     axios.get('http://localhost:8000/api/article')
-       .then(response => {
-         this.setState({articles: response.data})
-      })
-      .catch(function (error) {
-        console.log(error);
-    });
+ getArticles = () => {
+   this.setState({
+     isLoading: true,
+   });
+
+   // axios.get(`${window.location.origin}/api/professional`)
+   axios.get(`http://neuroedu.co/api/article`)
+     .then(response => {
+       this.setState({articles: response.data});
+    })
+    .catch((error) => {
+      console.log(error);
+  });
+
+  this.setState({
+    isLoading: false,
+  });
  };
+
 
   render() {
     const { categories, articles } = this.state;

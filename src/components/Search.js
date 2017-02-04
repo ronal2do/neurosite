@@ -19,6 +19,23 @@ const sec = css({
   },
 });
 
+let blink = css.keyframes('blink', { // optional name
+  'from, to' :{
+    color: 'transparent'
+  },
+  '50%' : {
+    color: Globals.colors.gray
+  }
+})
+
+const blk = css({
+  fontWeight: '100',
+  fontSize: 30,
+  marginLeft: 15,
+  color: Globals.colors.gray,
+  animation: `${blink} 2s step-end infinite`,
+})
+
 const inp = css({
   width: '100%',
   maxWidth: '1100px',
@@ -51,10 +68,18 @@ const h2 = css({
   },
 })
 
+// let bounce = css.keyframes('bounce', { // optional name
+//   '0%': { transform: 'scale(0.1)', opacity: 0 },
+//   '60%': { transform: 'scale(1.2)', opacity: 1 },
+//   '100%': { transform: 'scale(1)' }
+// })
+
+
 const Search = () => {
   return (
     <form className={sec} action="https://www.ncbi.nlm.nih.gov/pubmed?" target="_blank">
       <h2 className={h2}>Pesquisar artigos</h2>
+      <span className={blk}>  |</span>
       <input type="search" placeholder="pubmed.gov" className={inp} name="term" required/>
       <input type="submit" className={lup} value="" />
     </form>

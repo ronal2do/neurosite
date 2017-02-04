@@ -4,7 +4,7 @@ import Globals from '../utils/Globals';
 
 import arrow from '../media/images/Arrow.svg';
 import brodman from '../media/images/brodman.png';
-import sociais from '../media/images/sociais.png';
+// import sociais from '../media/images/sociais.png';
 
 const sec = css({
   backgroundColor: Globals.colors.primary,
@@ -60,10 +60,12 @@ class Hero extends Component {
     const sliders = [{
     	image: brodman,
     	text: 'Lorem Ipsum 1',
-    }, {
-    	image: sociais,
-    	text: 'Lorem Ipsum 2',
-    }];
+    }
+    // , {
+    // 	image: sociais,
+    // 	text: 'Lorem Ipsum 2',
+    // }
+  ];
 
     const { sliderIndex } = this.state;
 
@@ -72,14 +74,16 @@ class Hero extends Component {
         className={sec}
         {...style({backgroundImage: `url(${sliders[sliderIndex].image})`} )}
       >
-        <div className={controller}>
-          <span {...style({cursor: 'pointer'})} onClick={this.nextStep.bind(this)}>
-            <img src={arrow} alt="Arrow" />
-          </span>
-          <span {...style({cursor: 'pointer', transform: 'rotate(180deg)'})} onClick={this.prevStep.bind(this)}>
-            <img src={arrow} alt="Arrow" />
-          </span>
-        </div>
+        { sliders.length > 1 ?
+          <div className={controller}>
+            <span {...style({cursor: 'pointer'})} onClick={this.nextStep.bind(this)}>
+              <img src={arrow} alt="Arrow" />
+            </span>
+            <span {...style({cursor: 'pointer', transform: 'rotate(180deg)'})} onClick={this.prevStep.bind(this)}>
+              <img src={arrow} alt="Arrow" />
+            </span>
+          </div> : null
+        }
       </section>
     );
   }
