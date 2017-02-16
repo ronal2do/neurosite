@@ -47,7 +47,7 @@ class Articles extends Component {
         isLoading: true,
       });
 
-      axios.get(`${window.location.origin}/api/newest`)
+      axios.get(`http://neuroedu.co/api/newest`)
         .then(response => {
           this.setState({newests: response.data});
        })

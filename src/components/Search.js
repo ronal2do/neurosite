@@ -33,7 +33,7 @@ const blk = css({
   fontSize: 30,
   marginLeft: 15,
   color: Globals.colors.gray,
-  animation: `${blink} 2s step-end infinite`,
+  animation: `${blink} 1s step-end infinite`,
 })
 
 const inp = css({
@@ -67,13 +67,6 @@ const h2 = css({
     whiteSpace: 'normal'
   },
 })
-
-// let bounce = css.keyframes('bounce', { // optional name
-//   '0%': { transform: 'scale(0.1)', opacity: 0 },
-//   '60%': { transform: 'scale(1.2)', opacity: 1 },
-//   '100%': { transform: 'scale(1)' }
-// })
-
 
 const Search = () => {
   return (

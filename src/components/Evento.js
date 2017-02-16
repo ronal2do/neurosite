@@ -70,7 +70,7 @@ const Evento = ({event}) => {
       <div className={header}>
         <div className={date}>{event.date}</div>
         <div><img src={pin} alt=""/></div>
-        <div>São Paulo</div>
+        <div> São Paulo</div>
       </div>
       <div>
         <h1 className={h2}>{event.title}</h1>

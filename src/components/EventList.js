@@ -42,7 +42,7 @@ class EventList extends Component {
       return (
         <div className={cont}>
           {events.map((event, key) => {
-              return <Evento key={event._id} event={event} />;
+              return <Evento key={event.id} event={event} />;
           })}
 
         </div>

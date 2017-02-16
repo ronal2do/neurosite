@@ -52,7 +52,7 @@ class Lessons extends Component {
      isLoading: true,
    });
 
-   // axios.get(`${window.location.origin}/api/professional`)
+   // axios.get(`http://neuroedu.co/api/professional`)
    axios.get(`http://neuroedu.co/api/article`)
      .then(response => {
        this.setState({articles: response.data});

@@ -4,7 +4,6 @@ import Globals from '../utils/Globals';
 
 import Banner from '../components/Banner';
 import Section from '../components/Section';
-import Container from '../components/Container';
 import Divi from '../components/Divi';
 import Footer from '../components/Footer';
 import PortalForm from '../components/PortalForm';
@@ -17,24 +16,19 @@ class Home extends Component {
     return (
       <div>
         <Banner title="contato" image={contato} />
+
         <Section color="white">
-          <Divi  title="Eventos" subTitle="Acontecendo agora"/>
+          <Divi title="fale" subTitle="conosco"/>
         </Section>
-        <Section color="white" nopadding >
-          <Container>
-            <Section color="white">
-              Nenhum evento no momento
-            </Section>
-            <Section color="white">
-                
-            </Section>
-          </Container>
-        </Section>
-        <Section color="white">
-          <Divi  title="fale" subTitle="conosco"/>
-        </Section>
-        <Section color="white">
-          dados de contato
+        <Section color="white" nopadding>
+          <div style={{flexDirection: 'column'}}>
+            <p>Sujestões, critícas whatever...</p>
+            <h1><i>oi@neuroedu.co</i></h1>
+            <p>https://onedrive.live.com/embed?cid=EF4DF2553A1EA2D2&resid=EF4DF2553A1EA2D2%211120&authkey=AL-6B4AeF66gQ1E</p>
+            <a href="https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2&id=EF4DF2553A1EA2D2%211563&authkey=AL-6B4AeF66gQ1E">link  V</a>
+            <br/>
+            <br/>
+          </div>
         </Section>
         <Section color="rgb(63, 67, 71)" image={newsletter}>
           <PortalForm color={Globals.colors.green}/>

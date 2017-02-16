@@ -49,7 +49,6 @@ const men = css({
   },
 })
 
-
 const cont = css({
   display: 'flex',
   justifyContent: 'space-between',
@@ -96,11 +95,6 @@ class Nav extends Component {
     sidebarOpen: false,
   };
 
-  constructor(props){
-  	super(props);
-    this.handleMenu = this.handleMenu.bind(this);
-  }
-
   componentDidMount = () => {
     global.addEventListener('scroll', this.handleScroll);
   };
@@ -123,7 +117,7 @@ class Nav extends Component {
     }
   };
 
-  handleMenu() {
+  handleMenu = () => {
     this.setState(prevState => ({
       sidebarOpen: !prevState.sidebarOpen
     }));

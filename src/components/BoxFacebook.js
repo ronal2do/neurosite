@@ -5,6 +5,8 @@ import graph from 'fb-react-sdk';
 import moment from 'moment';
 import 'moment/locale/pt-br' ;
 
+import commma from '../media/images/Untitled-2.svg';
+
 import Globals from '../utils/Globals';
 
 const sec = css({
@@ -60,6 +62,9 @@ class BoxFacebook extends Component {
     const { post } = this.state;
     return (
       <section className={sec} >
+        <div {...css({alignSelf: 'flex-start'})}>
+          <img src={commma} alt="" {...css({marginTop: '-5px', padding: '0 50px'})}/>
+        </div>
         <h1 style={{color: 'white'}}>{moment(post.created_time).fromNow()}</h1>
         <p {...css({padding: '30px 50px'})}>
           {post.message}

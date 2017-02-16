@@ -120,10 +120,8 @@ const People = ({
           }
         </div>
         <div {...css({textAlign: 'center'})}>
-          <h1 className={h2}>{name}</h1>
-          <p>
-            {office}
-          </p>
+          <h2 className={h2}>{name}</h2>
+          <a href={office} target="_blank"><p>Curriculum Lattes</p></a>
         </div>
         <div {...style({display: 'flex'})}>
          {
@@ -136,11 +134,12 @@ const People = ({
     </div>
   ) : (
     <div className={conc} >
+
       <br/>
-      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{name}</h4>
-      <br/>
-      <div className={header} {...style({backgroundImage: `url(/uploads/professional/${image})`, maxWidth: '100', height: '100', width: 100, filter: 'grayscale(100%)', opacity: 0.7})}></div>
-    </div>
+      <div className={header} {...style({backgroundImage: `url('http://neuroedu.co/uploads/professional/${image}')`, maxWidth: '100', height: '100', width: 100, filter: 'grayscale(100%)', opacity: 0.7})}></div>
+        <br/>
+        <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{name}</h4>
+  </div>
   );
 }
 

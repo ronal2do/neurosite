@@ -16,7 +16,6 @@ const nll = css({
   },
 })
 
-
 class VideoList extends Component {
   state = {
   	videoIndex: 0,
@@ -34,36 +33,38 @@ class VideoList extends Component {
 
     return (
       <div>
+        {videos.length > 0 ?
         <div {...style({display: 'flex'})}>
 
            {videoIndex >= 1 ?
              <Channel
-               title={videos[videoIndex - 1].title}
-               youtube={videos[videoIndex - 1].youtube}
-               body={videos[videoIndex - 1].body}
+               title={videos[videoIndex - 1].snippet.title}
+               youtube={videos[videoIndex - 1].snippet.thumbnails.high.url}
+               body={videos[videoIndex - 1].snippet.description}
               /> : <div className={nll}></div>
            }
 
            <Channel
-             title={videos[videoIndex].title}
-             youtube={videos[videoIndex].youtube}
-             body={videos[videoIndex].body}
+             title={videos[videoIndex].snippet.title}
+             youtube={videos[videoIndex].snippet.thumbnails.high.url}
+             body={videos[videoIndex].snippet.description}
              prevStep={this.prevStep.bind(this)}
              nextStep={this.nextStep.bind(this)}
              videoIndex={videoIndex}
+             videoId={videos[videoIndex].id.videoId}
              max={MAX}
              active
             />
 
           {videoIndex + 1 < MAX ?
             <Channel
-              title={videos[videoIndex + 1].title}
-              youtube={videos[videoIndex + 1].youtube}
-              body={videos[videoIndex + 1].body}
+              title={videos[videoIndex + 1].snippet.title}
+              youtube={videos[videoIndex + 1].snippet.thumbnails.high.url}
+              body={videos[videoIndex + 1].snippet.description}
              /> : <div className={nll}></div>
           }
 
-        </div>
+        </div> : <p>no videos</p>}
       </div>
     );
   }

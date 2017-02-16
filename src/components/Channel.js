@@ -81,21 +81,17 @@ const header = css({
   backgroundPosition: 'center',
 })
 
-const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max, body}) => {
+const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max, body, videoId}) => {
   return active ? (
     <div className={cont} >
-      <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
-        <h1 className={h2}>{title}</h1>
+      <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" {...style({textDecoration: 'none'})} >
+        <h1 className={h2}>{title.substr(0, 30)}</h1>
+        <div className={header} {...style({backgroundImage: `url(${youtube})`})}></div>
       </a>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`})}>
-      </div>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
         <div>
-          <a href={`https://www.youtube.com/watch?v=${youtube}`} target="_blank" {...style({textDecoration: 'none'})} >
-            <h1 className={h2}>{title}</h1>
-          </a>
           <p>
-            {body.substr(0, 150)}
+            {body.substr(0, 350)}
           </p>
         </div>
         <div {...style({display: 'flex'})}>
@@ -103,13 +99,14 @@ const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max, b
         {  videoIndex + 1 < max ? <button onClick={nextStep} className={btn}><img src={Seta} alt=""/></button> : <div className={nll}></div> }
         </div>
       </div>
+
     </div>
   ) : (
     <div className={conc} >
       <br/>
-      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{title}</h4>
+      <h4 className={h2} {...style({color: 'rgba(0,0,0,0.3)'})}>{title.substr(0, 50)}</h4>
       <br/>
-      <div className={header} {...style({backgroundImage: `url(http://img.youtube.com/vi/${youtube}/maxresdefault.jpg)`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
+      <div className={header} {...style({backgroundImage: `url(${youtube})`, maxWidth: '100%', height: '161', opacity: 0.4})}></div>
     </div>
   );
 }

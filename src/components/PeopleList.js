@@ -89,7 +89,6 @@ class PeopleList extends Component {
       isLoading: true,
     });
 
-    // axios.get(`${window.location.origin}/api/professional`)
     axios.get(`http://neuroedu.co/api/professional`)
       .then(response => {
         this.setState({professional: response.data});
@@ -104,7 +103,10 @@ class PeopleList extends Component {
   };
 
   render() {
-    const { professional, peopleIndex,  } = this.state;
+    const {
+      professional,
+      peopleIndex,
+    } = this.state;
 
     const MAX = professional.length;
 
@@ -135,7 +137,7 @@ class PeopleList extends Component {
                   active
                 />
               :null}
-              {professional.length + 1 < MAX ?
+              {peopleIndex + 1 < MAX ?
                 <People
                   name={professional[peopleIndex + 1].name}
                   image={professional[peopleIndex + 1].image}
