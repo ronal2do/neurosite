@@ -13,7 +13,10 @@ import newsletter from '../media/images/newsletter.png';
 
 class Home extends Component {
   render() {
+    const fileID = '&resid=EF4DF2553A1EA2D2%213034';
+
     return (
+
       <div>
         <Banner title="contato" image={contato} />
 
@@ -24,8 +27,8 @@ class Home extends Component {
           <div style={{flexDirection: 'column'}}>
             <p>Sujestões, critícas whatever...</p>
             <h1><i>oi@neuroedu.co</i></h1>
-            <p>https://onedrive.live.com/embed?cid=EF4DF2553A1EA2D2&resid=EF4DF2553A1EA2D2%211120&authkey=AL-6B4AeF66gQ1E</p>
-            <a href="https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2&id=EF4DF2553A1EA2D2%211563&authkey=AL-6B4AeF66gQ1E">link  V</a>
+            https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2${fileID}&authkey=AL-6B4AeF66gQ1E <br/>
+            <a href={`https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2${fileID}&authkey=AL-6B4AeF66gQ1E`}>link  V</a>
             <br/>
             <br/>
           </div>

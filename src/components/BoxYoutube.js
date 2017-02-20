@@ -18,9 +18,22 @@ const sec = css({
   fontFamily: Globals.fonts.secundary,
 });
 
+const lk = css({
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  color: 'white',
+  textDecoration: 'none',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  fontFamily: Globals.fonts.secundary,
+});
+
 class BoxYoutube extends Component {
   state = {
-    video: 'Play',
+    video: '|>',
   }
 
   componentDidMount() {
@@ -30,20 +43,20 @@ class BoxYoutube extends Component {
 
   componentWillMount() {
     //
-
   }
 
   render() {
     const { video } = this.state;
+    const { link } = this.props;
 
     return (
       <section className={sec} >
-        <a href="#">
+        <a href={link} className={lk}>
         <h1 style={{color: 'white'}}>{ video }</h1>
-        <p>
+        {/* <p>
           ultima transmissão
          </p>
-         <small>22 hrs atrás</small>
+         <small>22 hrs atrás</small> */}
         </a>
       </section>
     );

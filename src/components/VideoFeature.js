@@ -17,7 +17,7 @@ const cont = css({
 })
 
 const btn = css({
-  border: 'none',
+  border: '2px solid transparent',
   background: Globals.colors.blue,
   padding: 30,
   cursor: 'pointer',
@@ -26,13 +26,20 @@ const btn = css({
   textTransform: 'uppercase',
   letterSpacing: '0.7em',
   borderRadius: 3,
+  textDecoration: 'none',
+  transition: Globals.transitions.default,
+  ':hover' : {
+    background: 'transparent',
+    color: Globals.colors.blue,
+    border: `2px solid ${Globals.colors.blue}`,
+  }
 })
 
 const VideoFeature = ({articles}) => {
   return (
     <div className={cont}>
       <img src={teste} alt="" width="100%"/>
-      <button className={btn}>Acesse nosso canal</button>
+      <a href="https://www.youtube.com/channel/UCKwHa2um1k8dPQVaXk3TPsw" target="_blank" className={btn}>Acesse nosso canal</a>
     </div>
   );
 }

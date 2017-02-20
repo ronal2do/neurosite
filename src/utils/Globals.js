@@ -17,6 +17,10 @@ const Globals = {
     primary: 'Gotham',
     secundary: 'Playfair Display',
     fontSize: 15,
+  },
+
+  transitions: {
+    default: 'all 250ms linear'
   }
 };
 

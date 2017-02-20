@@ -7,9 +7,13 @@ const cont = css({
   width: 'calc(50% - 10px)',
   border: 'none',
   marginBottom: 45,
+  cursor: 'pointer',
+  textDecoration: 'none',
   '@media (max-width: 767px)': {
     width: '100%',
   },
+  color: Globals.colors.gray,
+
 })
 
 const bd = css({
@@ -22,25 +26,28 @@ const bd = css({
 const h2 = css({
   fontFamily: Globals.fonts.secundary,
   color: 'black',
+  textDecoration: 'none',
 })
 
 const p = css({
   fontFamily: Globals.fonts.primary,
   color: Globals.colors.gray,
   lineHeight: '1em',
+  textDecoration: 'none',
 })
 
 const Article = ({article}) => {
   return (
-    <div className={cont}>
+    <a href={article.url} target="_blank" className={cont}>
       <div>
         <img src={`http://neuroedu.co/uploads/novidades/${article.image}`} alt={article.title} width="100%" />
       </div>
       <div className={bd} >
         <h1 className={h2}>{article.title}</h1>
-        <p>{article.body}</p>
+        <p>{article.body.substr(0, 200)} ...</p>
+        <p>Ler mais</p>
       </div>
-    </div>
+    </a>
   );
 }
 

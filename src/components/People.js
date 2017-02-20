@@ -121,7 +121,7 @@ const People = ({
         </div>
         <div {...css({textAlign: 'center'})}>
           <h2 className={h2}>{name}</h2>
-          <a href={office} target="_blank"><p>Curriculum Lattes</p></a>
+          <a href={office} target="_blank" {...css({color: 'white', textDecoration: 'none'})}><p>Curriculum Lattes</p></a>
         </div>
         <div {...style({display: 'flex'})}>
          {

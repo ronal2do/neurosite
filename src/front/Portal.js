@@ -14,7 +14,8 @@ import PortalForm from '../components/PortalForm';
 import Footer from '../components/Footer';
 
 import portal from '../media/images/portal.png';
-import transmission from '../media/images/transmission.png';
+const transmission = 'ylXShcoF0xA';
+// import transmission from '../media/images/transmission.png';
 import inscrevase from '../media/images/inscrevase.png';
 
 class Portal extends Component {
@@ -29,8 +30,11 @@ class Portal extends Component {
         <Section color="#3b5999" nopadding>
           <Container>
             <BoxFacebook />
-            <Section color="rgb(63, 67, 71)" image={transmission}>
-              <BoxYoutube />
+            <Section color="rgb(63, 67, 71)"
+              image={`https://img.youtube.com/vi/${transmission}/sddefault.jpg`}
+
+              >
+            <BoxYoutube link={`https://www.youtube.com/watch?v=${transmission}`}/>
             </Section>
           </Container>
         </Section>

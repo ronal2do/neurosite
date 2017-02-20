@@ -33,7 +33,7 @@ const btn = css({
 class Articles extends Component {
     state = {
       isLoading: true,
-      numbers: 10,
+      numbers: 4,
       newests: []
     }
 
@@ -87,7 +87,7 @@ class Articles extends Component {
     //   });
     // };
 
-    moreItems = () => this.setState({ numbers: this.state.numbers + 10 });
+    moreItems = () => this.setState({ numbers: this.state.numbers + 6 });
 
     render() {
       const { numbers, newests, isLoading } = this.state;
@@ -97,7 +97,7 @@ class Articles extends Component {
         {newests.slice(0, numbers).map((newest, key) => {
             return <Article key={newest.id} article={newest} />;
         })}
-        { numbers <= newests.length ? <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>: null }
+        { numbers < newests.length ? <button className={btn} onClick={this.moreItems} >Carregar mais notícias</button>: null }
       </div>
     ) : <p> Cerregando... </p>;
   }

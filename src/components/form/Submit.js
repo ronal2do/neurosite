@@ -10,14 +10,16 @@ const submit = css({
   padding: '10px 40px',
   transition: 'all .2s ease-in-out',
   cursor: 'pointer',
-  border: `1px solid transparent`,
+  border: `2px solid transparent`,
   textTransform: 'uppercase',
   fontFamily: Globals.fonts.primary,
   fontSize: '18px',
   fontWeight: '100',
   letterSpacing: '5px',
-  ':hover': {
-
+  ':hover' : {
+    background: 'transparent',
+    color: 'white',
+    border: `2px solid white`,
   }
 })
 
