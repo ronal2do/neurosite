@@ -13,7 +13,7 @@ import newsletter from '../media/images/newsletter.png';
 
 class Home extends Component {
   render() {
-    const fileID = '&resid=EF4DF2553A1EA2D2%213034';
+    // const fileID = '&resid=EF4DF2553A1EA2D2%213034';
 
     return (
 
@@ -23,12 +23,13 @@ class Home extends Component {
         <Section color="white">
           <Divi title="fale" subTitle="conosco"/>
         </Section>
-        <Section color="white" nopadding>
+        <Section color="white">
           <div style={{flexDirection: 'column'}}>
-            <p>Sujestões, critícas whatever...</p>
-            <h1><i>oi@neuroedu.co</i></h1>
-            https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2${fileID}&authkey=AL-6B4AeF66gQ1E <br/>
-            <a href={`https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2${fileID}&authkey=AL-6B4AeF66gQ1E`}>link  V</a>
+            <p>Somos um portal de neurociência WWW.NEUROEDU.CO, local desenvolvido para os interessados em aprimorar seus conhecimentos em neurociências. Discutimos desde ciências básicas, incluindo neuroanatomia, neurofisiologia, neurologia clínica, neurocirurgia, clínica médica, patologia, e muitos artigos de revisão e novidades nas diversas áreas correlacionadas. Atualizaremos nosso portal de forma que você fique sempre com as últimas notícias sobre as pesquisas em neurociências. Não deixe de nos visitar diariamente, sempre haverá novidades para você, aproveite!
+	</p><p>Deixe sua mensagem para nós, tire suas dúvidas, participe dos fóruns de bate-papo e assista nossas aulas ao vivo. </p>
+<h3><i>contato@neuroedu.co</i></h3>
+            {/* https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2${fileID}&authkey=AL-6B4AeF66gQ1E <br/>
+            <a href={`https://onedrive.live.com/download?cid=EF4DF2553A1EA2D2${fileID}&authkey=AL-6B4AeF66gQ1E`}>link  V</a> */}
             <br/>
             <br/>
           </div>

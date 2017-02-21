@@ -52,18 +52,28 @@ const log = css({
   },
 })
 
+const link = css({
+  transition: Globals.transitions.default,
+  color: Globals.colors.gray,
+  ':hover' : {
+    color: Globals.colors.blue,
+  }
+})
+
+const renderLinks =   (<ul className={ul}>
+    <li><a href="https://www.facebook.com/neuroedu.coBR/" target="_blank" className={link}> <i className="fa fa-facebook" {...style({  padding: '0px 15px' })}></i></a></li>
+    {/* <li><a href="" target="_blank" className={link}>  <i className="fa fa-linkedin" {...style({  padding: '0px 15px', ':hover' : {color: Globals.colors.blue } })}></i></a></li> */}
+    <li><a href="https://www.youtube.com/channel/UCKwHa2um1k8dPQVaXk3TPsw" target="_blank" className={link}> <i className="fa fa-youtube" {...style({  padding: '0px 15px' })}></i></a></li>
+    {/* <li><a href="" target="_blank" className={link}> <i className="fa fa-instagram" {...style({  padding: '0px 15px', ':hover' : {color: Globals.colors.blue } })}></i></a></li> */}
+  </ul>);
+
 const Footer = ({ color, contact }) => {
   return contact ? (
     <footer className={sec} {...style({backgroundColor: `${color}` } )} id={name}>
 
       <img src={logoFooter} alt="" />
 
-      <ul className={ul}>
-        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-facebook" {...style({  padding: '0px 15px' })}></i></a></li>
-        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-linkedin" {...style({  padding: '0px 15px' })}></i></a></li>
-        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-youtube" {...style({  padding: '0px 15px' })}></i></a></li>
-        <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-instagram" {...style({  padding: '0px 15px' })}></i></a></li>
-      </ul>
+      {renderLinks}
 
       <div>Copyright 2016 neuroedu.co</div>
 
@@ -77,12 +87,7 @@ const Footer = ({ color, contact }) => {
          }
          </div>
         <div {...style({padding: '0 15px'})}>
-          <ul className={ul}>
-            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-facebook" {...style({  padding: '0px 15px' })}></i></a></li>
-            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-linkedin" {...style({  padding: '0px 15px' })}></i></a></li>
-            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-youtube" {...style({  padding: '0px 15px' })}></i></a></li>
-            <li><a href="" target="_blank" {...style({color: Globals.colors.gray })}><i className="fa fa-instagram" {...style({  padding: '0px 15px' })}></i></a></li>
-          </ul>
+          {renderLinks}
         </div>
       </div>
       <div>Copyright 2016 neuroedu.co</div>
