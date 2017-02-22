@@ -84,14 +84,14 @@ const header = css({
 const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max, body, videoId}) => {
   return active ? (
     <div className={cont} >
-      <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" {...style({textDecoration: 'none'})} >
+      <a href={videoId} target="_blank" {...style({textDecoration: 'none'})} >
         <h1 className={h2}>{title.substr(0, 30)}</h1>
         <div className={header} {...style({backgroundImage: `url(${youtube})`})}></div>
       </a>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
         <div>
           <p>
-            {body.substr(0, 350)}
+            {body.substr(0, 150)}
           </p>
         </div>
         <div {...style({display: 'flex'})}>

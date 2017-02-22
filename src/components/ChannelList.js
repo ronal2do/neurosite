@@ -16,7 +16,7 @@ const nll = css({
   },
 })
 
-class VideoList extends Component {
+class ChannelList extends Component {
   state = {
   	videoIndex: 0,
   }
@@ -38,29 +38,32 @@ class VideoList extends Component {
 
            {videoIndex >= 1 ?
              <Channel
-               title={videos[videoIndex - 1].snippet.title}
-               youtube={videos[videoIndex - 1].snippet.thumbnails.high.url}
-               body={videos[videoIndex - 1].snippet.description}
+               title={videos[videoIndex - 1].title}
+               youtube={`//img.youtube.com/vi/${videos[videoIndex - 1].youtube}/sddefault.jpg`}
+               link={videos[videoIndex - 1].url}
+               body={videos[videoIndex - 1].body}
               /> : <div className={nll}></div>
            }
 
            <Channel
-             title={videos[videoIndex].snippet.title}
-             youtube={videos[videoIndex].snippet.thumbnails.high.url}
-             body={videos[videoIndex].snippet.description}
+             title={videos[videoIndex].title}
+             youtube={`//img.youtube.com/vi/${videos[videoIndex].youtube}/sddefault.jpg`}
+             link={videos[videoIndex].url}
+             body={videos[videoIndex].body}
              prevStep={this.prevStep.bind(this)}
              nextStep={this.nextStep.bind(this)}
              videoIndex={videoIndex}
-             videoId={videos[videoIndex].id.videoId}
+             videoId={videos[videoIndex].url}
              max={MAX}
              active
             />
 
           {videoIndex + 1 < MAX ?
             <Channel
-              title={videos[videoIndex + 1].snippet.title}
-              youtube={videos[videoIndex + 1].snippet.thumbnails.high.url}
-              body={videos[videoIndex + 1].snippet.description}
+              title={videos[videoIndex + 1].title}
+              youtube={`//img.youtube.com/vi/${videos[videoIndex + 1].youtube}/sddefault.jpg`}
+              link={videos[videoIndex + 1].url}
+              body={videos[videoIndex + 1].body}
              /> : <div className={nll}></div>
           }
 
@@ -70,4 +73,4 @@ class VideoList extends Component {
   }
 }
 
-export default VideoList;
+export default ChannelList;

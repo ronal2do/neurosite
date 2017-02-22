@@ -41,6 +41,7 @@ class VideoList extends Component {
                title={videos[videoIndex - 1].snippet.title}
                youtube={videos[videoIndex - 1].snippet.thumbnails.high.url}
                body={videos[videoIndex - 1].snippet.description}
+               link={videos[videoIndex - 1].url}
               /> : <div className={nll}></div>
            }
 
@@ -48,10 +49,11 @@ class VideoList extends Component {
              title={videos[videoIndex].snippet.title}
              youtube={videos[videoIndex].snippet.thumbnails.high.url}
              body={videos[videoIndex].snippet.description}
+             link={videos[videoIndex].url}
              prevStep={this.prevStep.bind(this)}
              nextStep={this.nextStep.bind(this)}
              videoIndex={videoIndex}
-             videoId={videos[videoIndex].id.videoId}
+             videoId={`//www.youtube.com/watch?v=${videos[videoIndex].id.videoId}`}
              max={MAX}
              active
             />
@@ -61,6 +63,7 @@ class VideoList extends Component {
               title={videos[videoIndex + 1].snippet.title}
               youtube={videos[videoIndex + 1].snippet.thumbnails.high.url}
               body={videos[videoIndex + 1].snippet.description}
+              link={videos[videoIndex + 1].url}
              /> : <div className={nll}></div>
           }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search';
+import axios from 'axios';
 
 const API_KEY = 'AIzaSyBh3sFQt4oXLxIY6v2_LE-3-DuMKOsqTLM';
 
@@ -9,6 +10,7 @@ import Container from '../components/Container';
 import Divi from '../components/Divi';
 import BoxText from '../components/BoxText';
 import VideoList from '../components/VideoList';
+import ChannelList from '../components/ChannelList';
 import Footer from '../components/Footer';
 
 import Globals from '../utils/Globals';
@@ -21,7 +23,8 @@ const TEMA = 'AVC';
 class Forum extends Component {
   state = {
     // tema: 'Saúde neural',
-    videos: []
+    videos: [],
+    channels: []
   }
 
   videoSearch(term) {
@@ -34,12 +37,36 @@ class Forum extends Component {
 
   componentDidMount() {
     this.videoSearch(TEMA);
+    this.getChannels();
   }
+
+  getChannels = () => {
+
+    this.setState({
+      isLoading: true,
+    });
+
+    axios.get(`http://neuroedu.co/api/channel`)
+      .then(response => {
+        this.setState({channels: response.data});
+        console.log(response.data);
+     })
+     .catch((error) => {
+       console.log(error);
+   });
+
+   this.setState({
+     isLoading: false,
+   });
+
+  };
+
 
   render() {
 
     const {
       videos,
+      channels,
       // tema
     } = this.state;
 
@@ -53,7 +80,7 @@ class Forum extends Component {
 
         <Section color="white" nopadding>
           <Container>
-            <VideoList videos={videos}/>
+            <ChannelList videos={channels}/>
           </Container>
         </Section>
 

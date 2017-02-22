@@ -31,7 +31,7 @@ class Portal extends Component {
           <Container>
             <BoxFacebook />
             <Section color="rgb(63, 67, 71)"
-              image={`https://img.youtube.com/vi/${transmission}/sddefault.jpg`}
+              image={`//img.youtube.com/vi/${transmission}/sddefault.jpg`}
 
               >
             <BoxYoutube link={`https://www.youtube.com/watch?v=${transmission}`}/>
