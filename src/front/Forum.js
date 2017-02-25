@@ -49,15 +49,14 @@ class Forum extends Component {
     axios.get(`http://neuroedu.co/api/channel`)
       .then(response => {
         this.setState({channels: response.data});
-        console.log(response.data);
-     })
-     .catch((error) => {
-       console.log(error);
-   });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-   this.setState({
+    this.setState({
      isLoading: false,
-   });
+    });
 
   };
 

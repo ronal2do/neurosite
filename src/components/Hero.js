@@ -6,6 +6,18 @@ import arrow from '../media/images/Arrow.svg';
 import brodman from '../media/images/brodmann.png';
 import sociais from '../media/images/sociais.png';
 
+import SociaisBanner from './SociaisBanner';
+
+const cont = css({
+  width: '100%',
+  maxWidth: '1100px',
+  display: 'flex',
+   justifyContent: 'center',
+  '@media (max-width: 767px)': {
+    flexDirection: 'column',
+  },
+})
+
 const sec = css({
   backgroundColor: Globals.colors.primary,
   width: '100%',
@@ -24,8 +36,10 @@ const controller = css({
   position: 'absolute',
   right: 0,
   display: 'flex',
+  alignItems: 'center',
+  justifyContentItems: 'center',
   flexDirection: 'column',
-  padding: 30,
+  padding: '30px 20px',
 });
 
 class Hero extends Component {
@@ -43,7 +57,7 @@ class Hero extends Component {
     if (sliderIndex > sliderIndex.length) {
       setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex - 1}), 5000);
     }
-    setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex + 1}), 5000);
+    // setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex + 1}), 5000);
 
   }
 
@@ -58,21 +72,14 @@ class Hero extends Component {
   render() {
 
     const sliders = [{
-    	image: brodman,
-    	text: 'Lorem Ipsum 1',
-    }
-    , {
-    	image: sociais,
-    	text: 'Lorem Ipsum 2',
-    },{
-    	image: brodman,
-    	text: 'Lorem Ipsum 1',
-    }
-    , {
-    	image: sociais,
-    	text: 'Lorem Ipsum 2',
-    }
-  ];
+      	image: brodman,
+      	text: <SociaisBanner text/>,
+      }
+      , {
+      	image: sociais,
+      	text: <SociaisBanner />,
+      }
+    ];
 
     const { sliderIndex } = this.state;
     const MAX = sliders.length;
@@ -82,6 +89,11 @@ class Hero extends Component {
         className={sec}
         {...style({backgroundImage: `url(${sliders[sliderIndex].image})`} )}
       >
+        <div className={cont} style={{justifyContent: 'flex-start'}}>
+          <div>
+            {sliders[sliderIndex].text}
+          </div>
+        </div>
         { sliders.length > 0 ?
           <div className={controller}>
 

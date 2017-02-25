@@ -78,7 +78,9 @@ const lk = css({
   fontWeight: '100',
 
   ':hover': {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    color: Globals.colors.green,
+
   }
 })
 
@@ -133,9 +135,8 @@ class Nav extends Component {
     const menu = sidebarOpen ? 'menu-button push' : 'menu-button';
 
     return (
-      <div className={`${nv} ${test}`}>
+      <div {...css(nv, test)}>
         <div className={cont}>
-
           <div>
             <Link to="/">
               { isToggleOn ?

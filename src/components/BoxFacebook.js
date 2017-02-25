@@ -70,8 +70,12 @@ class BoxFacebook extends Component {
           {post.message}
         </p>
         <div className={foot}>
-          <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px', borderRight: '1px solid white',})}>F</div>
-          <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px'})}>Like</div>
+          <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px', borderRight: '1px solid white',})}>
+            <i className="fa fa-facebook"></i>
+          </div>
+          <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px'})}>
+            <i className="fa fa-thumbs-up"></i>
+          </div>
         </div>
       </section>
     );

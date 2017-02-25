@@ -71,7 +71,7 @@ p {
 }
 
 .active {
-  font-weight: bold;
+  color: #06cc9b;
 }
 
 .events::-webkit-input-placeholder { /* Chrome/Opera/Safari */
