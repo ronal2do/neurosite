@@ -48,7 +48,7 @@ const bg = css({
 const Article = ({article}) => {
   return (
     <a href={article.url} target="_blank" className={cont}>
-      <div className={bg} {...style({backgroundImage: `url('${article.image}')`})}></div>
+      <div className={bg} {...style({backgroundImage: `url('//neuroedu.co/uploads/novidades/${article.image}')`})}></div>
       <div className={bd} >
         <h1 className={h2}>{article.title}</h1>
         <p>{article.body.substr(0, 200)} ...</p>

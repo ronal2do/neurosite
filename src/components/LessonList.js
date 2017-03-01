@@ -58,30 +58,10 @@ const btn = css({
   }
 
 })
-//
-// const btns = css({
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center',
-//   flexDirection: 'row',
-//
-//   '@media (max-width: 767px)': {
-//     flexDirection: 'column',
-//     border: 'none',
-//   },
-//
-// })
 
 class LessonList extends Component {
     state = {
     	numbers: 2,
-    }
-
-    constructor(props){
-    	super(props);
-
-      this.moreItems = this.moreItems.bind(this)
-    	this.minusItems = this.minusItems.bind(this)
     }
 
     moreItems = () => this.setState({ numbers: this.state.numbers + 2 });
@@ -89,12 +69,14 @@ class LessonList extends Component {
     minusItems = () => this.setState({ numbers: this.state.numbers - 2 });
 
     render() {
-      const { lessons } = this.props;
+      const { lessons, filter } = this.props;
       const { numbers } = this.state;
+
+      const isCategory = filter ? lesson => lesson.category_id === filter : lesson => lesson.category_id !== filter;
 
       return (
         <div className={cont}>
-          {lessons.slice(0, numbers).map((lesson, key) => {
+          {lessons.slice(0, numbers).filter(isCategory).map((lesson, key) => {
               return <Lesson key={lesson.id} lesson={lesson} />;
           })}
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Globals from '../utils/Globals';
 
 import { css } from 'glamor';
@@ -26,6 +26,7 @@ const arti = css({
   textDecoration: 'none',
   color: Globals.colors.gray,
   transition: 'color 300ms linear',
+  cursor: 'pointer',
   ':hover' : {
     color: Globals.colors.primary,
     // textTransform: 'uppercase',
@@ -40,15 +41,19 @@ const h1 = css({
   textTransform: 'uppercase',
 })
 
-const Sidebar = ({categories}) => {
+
+class Sidebar extends Component {
+render() {
+  const { categories } = this.props;
+
   return (
-    <div className={cont}>
-      <h1 className={h1}>Artigos</h1>
-        {categories.map((categorie, key) => {
-            return <a href key={categorie.id} className={arti}>#{categorie.title}</a>;
-        })}
-    </div>
+      <div className={cont}>
+        <h1 className={h1}>Artigos</h1>
+          {categories.map((categorie, key) => {
+              return <span key={categorie.id} className={arti} onClick={() => this.props.onClick(categorie)} >#{categorie.title}</span>;
+          })}
+      </div>
   );
-}
+}}
 
 export default Sidebar;

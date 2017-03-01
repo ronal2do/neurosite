@@ -21,7 +21,7 @@ const cont = css({
 })
 
 class Lessons extends Component {
-  state = { categories: [], articles: [] }
+  state = { categories: [], articles: [], category_id: '' }
 
   componentDidMount = () => {
     this.getCats();
@@ -52,7 +52,6 @@ class Lessons extends Component {
      isLoading: true,
    });
 
-   // axios.get(`http://neuroedu.co/api/professional`)
    axios.get(`http://neuroedu.co/api/article`)
      .then(response => {
        this.setState({articles: response.data});
@@ -66,14 +65,19 @@ class Lessons extends Component {
   });
  };
 
+   onChange = (categorie) => {
+     this.setState({
+       category_id: categorie.id
+     })
+   }
 
   render() {
-    const { categories, articles } = this.state;
+    const { categories, articles, category_id } = this.state;
 
     return (
       <div className={cont}>
-        <Sidebar categories={categories}/>
-        <LessonList lessons={articles}/>
+        <Sidebar categories={categories} onClick={this.onChange} />
+        <LessonList lessons={articles} filter={category_id} />
       </div>
     );
   }
