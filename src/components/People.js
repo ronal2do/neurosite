@@ -109,7 +109,7 @@ const People = ({
   return active ? (
     <div className={cont} >
       <div className={header}>
-        {image ? <div className={header} {...style({backgroundImage: `url('http://neuroedu.co/uploads/professional/${image}')`, backgroundSize: 'cover', maxWidth: '170', height: '170', width: 170, marginTop: 140})}></div> : null}
+        { image ? <div className={header} {...style({backgroundImage: `url('http://neuroedu.co/uploads/professional/${image}')`, backgroundSize: 'cover', maxWidth: '170', height: '170', width: 170, marginTop: 140})}></div> : null}
       </div>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left', justifyContent: 'space-between', alignItems: 'center' })}>
         <div {...style({display: 'flex'})}>

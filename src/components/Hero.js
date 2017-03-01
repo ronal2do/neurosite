@@ -35,6 +35,7 @@ const controller = css({
   backgroundColor: '#667ebe',
   position: 'absolute',
   right: 0,
+  top: '50%',
   display: 'flex',
   alignItems: 'center',
   justifyContentItems: 'center',
@@ -57,7 +58,8 @@ class Hero extends Component {
     if (sliderIndex > sliderIndex.length) {
       setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex - 1}), 5000);
     }
-    // setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex + 1}), 5000);
+
+    setTimeout(() => this.setState({sliderIndex: this.state.sliderIndex + 1}), 5000);
 
   }
 
@@ -68,9 +70,7 @@ class Hero extends Component {
     })
   }
 
-// Render
   render() {
-
     const sliders = [{
       	image: brodman,
       	text: <SociaisBanner text/>,
@@ -95,7 +95,7 @@ class Hero extends Component {
           </div>
         </div>
         { sliders.length > 0 ?
-          <div className={controller}>
+          <div className={controller} style={{justifyContent: 'flex-start'}}>
 
             {sliderIndex + 1 < MAX ?
             <span {...style({cursor: 'pointer'})} onClick={this.nextStep.bind(this)}>
@@ -106,6 +106,7 @@ class Hero extends Component {
             <span {...style({cursor: 'pointer', transform: 'rotate(180deg)'})} onClick={this.prevStep.bind(this)}>
               <img src={arrow} alt="Arrow" />
             </span> : <span style={{height: 20}}></span>}
+
           </div> : null
         }
       </section>

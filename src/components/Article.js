@@ -1,7 +1,7 @@
 import React from 'react';
 import Globals from '../utils/Globals';
 
-import { css } from 'glamor';
+import { css, style } from 'glamor';
 
 const cont = css({
   width: 'calc(50% - 10px)',
@@ -36,12 +36,19 @@ const p = css({
   textDecoration: 'none',
 })
 
+const bg = css({
+  width: 540,
+  height: 360,
+  maxWidth: '100%',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+})
+
 const Article = ({article}) => {
   return (
     <a href={article.url} target="_blank" className={cont}>
-      <div>
-        <img src={`http://neuroedu.co/uploads/novidades/${article.image}`} alt={article.title} width="100%" />
-      </div>
+      <div className={bg} {...style({backgroundImage: `url('${article.image}')`})}></div>
       <div className={bd} >
         <h1 className={h2}>{article.title}</h1>
         <p>{article.body.substr(0, 200)} ...</p>

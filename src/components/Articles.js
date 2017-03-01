@@ -28,6 +28,7 @@ const btn = css({
   textTransform: 'uppercase',
   letterSpacing: '0.7em',
   borderRadius: 3,
+  fontSize: '1em',
 })
 
 class Articles extends Component {
@@ -60,32 +61,6 @@ class Articles extends Component {
      });
 
     };
-
-    // getNews = async () => {
-    //   this.setState({
-    //     isLoading: true,
-    //   });
-    //
-    //   try {
-    //     const { newest } = await getNewestList();
-    //
-    //     console.log('getNewestList ' + getNewestList());
-    //     console.log('setState newests ' + [newest]);
-    //
-    //     this.setState({
-    //       newests: Object
-    //     });
-    //
-    //     console.log('Novo State Newests ' + newest);
-    //
-    //   } catch(err) {
-    //     console.log('Newest err:', err);
-    //   }
-    //
-    //   this.setState({
-    //     isLoading: false,
-    //   });
-    // };
 
     moreItems = () => this.setState({ numbers: this.state.numbers + 6 });
 

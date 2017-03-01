@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from './components/Nav';
-import 'glamor/reset';
+// import 'glamor/reset';
 import './media/styles/index.css';
 
 class App extends Component {
