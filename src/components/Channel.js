@@ -89,10 +89,8 @@ const Channel = ({title, active, youtube, nextStep, prevStep, videoIndex, max, b
         <div className={header} {...style({backgroundImage: `url(${youtube})`})}></div>
       </a>
       <div {...style({display: 'flex', padding: '10px 35px', textAlign: 'left'})}>
-        <div>
-          <p>
-            {body.substr(0, 150)}
-          </p>
+        <div {...style({ height: 150})}>
+          { body ? <p>{body.substr(0, 150)}}</p> : <div {...style({ width: 270})}></div> }
         </div>
         <div {...style({display: 'flex'})}>
         {  videoIndex >= 1 ? <button onClick={prevStep} className={btn}><img src={Seta} alt="" {...style({transform: 'rotate(180deg)'})}/></button> : <div className={nll}></div> }

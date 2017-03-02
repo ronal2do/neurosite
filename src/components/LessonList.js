@@ -61,12 +61,12 @@ const btn = css({
 
 class LessonList extends Component {
     state = {
-    	numbers: 2,
+    	numbers: 10,
     }
 
-    moreItems = () => this.setState({ numbers: this.state.numbers + 2 });
+    moreItems = () => this.setState({ numbers: this.state.numbers + 5 });
 
-    minusItems = () => this.setState({ numbers: this.state.numbers - 2 });
+    minusItems = () => this.setState({ numbers: this.state.numbers - 5 });
 
     render() {
       const { lessons, filter } = this.props;
