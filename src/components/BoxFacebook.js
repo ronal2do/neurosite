@@ -77,12 +77,12 @@ class BoxFacebook extends Component {
 
           <div className={foot}>
             <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px', borderRight: '1px solid white',})}>
-              <a href={ post.link } target="_blank">
+              <a href={ post.link } target="_blank" {...css({color: 'white'})} >
                 <i className="fa fa-facebook"></i>
               </a>
             </div>
             <div {...css({width: '50%',display: 'flex', justifyContent: 'center' ,padding: '30px 0px'})}>
-              <a href={ post.link } target="_blank">
+              <a href={ post.link } target="_blank" {...css({color: 'white'})} >
                 <i className="fa fa-thumbs-up">{post.admin_creator}</i>
               </a>
             </div>
