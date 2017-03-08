@@ -47,7 +47,7 @@ class BoxFacebook extends Component {
 
     graph.setAccessToken(this.state.access_token);
 
-    graph.get('amigossauro/posts', {limit: 1}, (err, res) => {
+    graph.get('neuroedu.co/posts', {limit: 1}, (err, res) => {
       if (res.data[0].message) {
         const rp = res.data[0];
          this.setState({

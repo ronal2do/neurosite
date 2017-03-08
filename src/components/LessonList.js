@@ -61,7 +61,7 @@ const btn = css({
 
 class LessonList extends Component {
     state = {
-    	numbers: 10,
+    	numbers: 40,
     }
 
     moreItems = () => this.setState({ numbers: this.state.numbers + 5 });
