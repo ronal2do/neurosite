@@ -74,7 +74,7 @@ const ChannelFeature = ({articles}) => {
             </div>
           </div>
           <div {...css({display: 'flex', justifyContent: 'space-between'})}>
-            <div {...css({backgroundImage: `url('//img.youtube.com/vi/${transmission}/sddefault.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', maxWidth: 620, width: 620, marginLeft: '50', height: 380, display: 'flex', })}>
+            <div {...css({backgroundImage: `url('//img.youtube.com/vi/${transmission}/3.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', maxWidth: 620, width: 620, marginLeft: '50', height: 380, display: 'flex', })}>
               <BoxYoutube link={`https://www.youtube.com/watch?v=${transmission}`}/>
             </div>
             <div {...css({margin: 50, maxWidth: 200, width: '100%', color: 'white' })}>

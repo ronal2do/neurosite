@@ -64,7 +64,7 @@ const p = css({
 const btn = css({
   border: 'none',
   background: 'transparent',
-  padding: 20,
+  padding: 25,
   cursor: 'pointer',
   color: '#1e2b30',
   fontFamily: Globals.fonts.primary,

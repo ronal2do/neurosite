@@ -29,7 +29,7 @@ const Lesson = ({lesson}) => {
       <div {...css({padding: '45px 65px'})}>
         <h1 className={h2}>{lesson.title}</h1>
         <p>{lesson.body}</p>
-        <a className={h2} href={`http://neuroedu.co/uploads/artigos/${lesson.image}`} name={lesson.title} download>
+      <a className={h2} href={lesson.url} name={lesson.title} target="_blank">
           Baixar
         </a>
       </div>

@@ -22,7 +22,7 @@ const cont = css({
 })
 
 const text = css({
-  maxWidth: 600,
+  maxWidth: 700,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
