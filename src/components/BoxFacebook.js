@@ -35,9 +35,8 @@ const foot = css({
 class BoxFacebook extends Component {
   state = {
     post: '',
-    access_token: 'EAACEdEose0cBAAaPZCTnQZB4ZAO1HsgFXIYRJeIqyms9APeQuhfT2zg6rguZBjMAp82LmOeYFKTUmKyiG9tY9FUZCPop6ooUnJF9cpnYkTsu429S3pWxIvinwFGntnV0WWIXJZCUZBZCbYvK2O3cZAZCCUAx7omiKSin5HXc0k2u5fNtNlWZBfZCO99ZBRHso2urDSB8ZD',
-    // access_token: '2135275936698660|KnT3NpVx-9n7MGSIANzVT32JCho',
-    // access_token: 'EAACEdEose0cBAOitveAXu9tLsHWS3beK4oq8fxLPrZBV2n15u3lZCSKNRHZANksTzVZBhQTLKLSSvLxN8PTMSuQEfcHWBhAWF3gYKBCzKCp6ZALqfVGGrowK2kgnnG1tRw05zdVOv0lfWv66sbe6lYdNPO9WR5Y2amerMa9HzlliZBIabkw9nZBLiC0MjxNMHgZD',
+    access_token: 'EAAeWBau0USQBAC3FaRYrA0B7Y2Q2Dkp9mV6JaQGyjPZCw3rZADpPqdtJprnZCqlc8ndPh6z76AE41h0jOFPIOAsv8cVuiZC1skurk4q4H0tLDT7pLvDsu1NDRXpoNzAMQVsbowdrDxzZCvfUWeKFgt7nxOWOAJk0ZD',
+
   }
 
   componentDidMount() {
