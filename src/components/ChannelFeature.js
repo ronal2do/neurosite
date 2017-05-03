@@ -79,8 +79,8 @@ const ChannelFeature = ({articles}) => {
             </div>
             <div {...css({margin: 50, maxWidth: 200, width: '100%', color: 'white' })}>
               <p {...css({ height: 50 })}></p>
-              <p><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam quaerat distinctio laudantium praesentium accusantium.</p>
-              <p>14 Nov 2017</p>
+              {/* <p><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam quaerat distinctio laudantium praesentium accusantium.</p> */}
+              {/* <p>14 Nov 2017</p> */}
             </div>
           </div>
         </div>
